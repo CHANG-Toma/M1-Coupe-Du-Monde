@@ -37,17 +37,17 @@ Grand public francophone (18–45 ans), débutant à intermédiaire, principalem
 
 ## 4. Attentes fonctionnelles
 
-| Besoin | Description | Priorité |
-| ------ | ----------- | -------- |
-| Consultation par phase | Groupes, 1/16, 1/8, quarts, demis, petite finale, finale | Must have |
-| Détail d'un match | Équipes, date/heure, stade (si dispo), score, statut (à venir / en cours / terminé) | Must have |
-| Temps réel | Mise à jour automatique des scores et statuts (polling 5–30 s) | Must have |
-| Navigation | Menu par phase, liste de matchs, page détail, retour intuitif | Must have |
-| Classements | Tableau des groupes (points, matchs joués, différence de buts) | Must have |
-| Tableau éliminatoire | Visualisation simplifiée des phases finales | Must have |
-| Ergonomie | Interface en français, scores mis en avant, états chargement/erreur | Must have |
-| Chronologie des buts | Timeline sur la page détail | Should have |
-| Filtre par équipe | Recherche ou filtre sur une équipe | Should have |
-| Mode sombre | Thème sombre | Should have |
+| Besoin | Description |
+| ------ | ----------- |
+| Consultation par phase | Groupes, 1/16, 1/8, quarts, demis, petite finale, finale |
+| Détail d'un match | Équipes, date/heure, stade (si dispo), score, statut (à venir / en cours / terminé) |
+| Temps réel | Mise à jour automatique des scores et statuts (polling 5–30 s) |
+| Navigation | Menu par phase, liste de matchs, page détail, retour intuitif |
+| Classements | Tableau des groupes (points, matchs joués, différence de buts) |
+| Tableau éliminatoire | Visualisation simplifiée des phases finales |
+| Ergonomie | Interface en français, scores mis en avant, états chargement/erreur |
+| Chronologie des buts *(optionnel)* | Timeline sur la page détail |
+| Filtre par équipe *(optionnel)* | Recherche ou filtre sur une équipe |
+| Mode sombre *(optionnel)* | Thème sombre |
 
-**Hors périmètre V1 :** fantasy, pronostics, auth, notifications push, stats avancées (xG, heatmaps), app mobile native.
+**Hors périmètre :** fantasy, pronostics, auth, notifications push, stats avancées (xG, heatmaps), app mobile native.
