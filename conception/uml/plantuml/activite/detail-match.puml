@@ -1,0 +1,50 @@
+@startuml activite-detail-match
+title Affichage du détail d'un match
+skinparam activity {
+  BackgroundColor #F8FAFC
+  BorderColor #1E3A5F
+  FontSize 13
+}
+skinparam partition {
+  BackgroundColor #E2E8F0
+  FontColor #1E293B
+  FontSize 14
+  FontStyle bold
+}
+
+|Utilisateur|
+start
+:Cliquer sur un match;
+
+|Interface|
+:Demander les données du match;
+
+|Système|
+:GET /api/matches/id;
+
+|API externe|
+:Renvoyer score et statut;
+
+|Système|
+:Valider la réponse;
+
+|Interface|
+if (Statut du match ?) then (à venir)
+  :Afficher équipes, date, stade;
+  :Masquer le score;
+  |Utilisateur|
+  stop
+elseif (terminé) then
+  :Afficher score final;
+  :Badge « Terminé »;
+  |Utilisateur|
+  stop
+else (en cours)
+  :Afficher score en direct;
+  :Badge « En cours »;
+  |Utilisateur|
+  :Consulter le match;
+  stop
+endif
+
+@enduml

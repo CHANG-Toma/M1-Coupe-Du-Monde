@@ -1,0 +1,55 @@
+@startuml activite-temps-reel
+title Mise à jour en temps réel (match en cours)
+skinparam activity {
+  BackgroundColor #F8FAFC
+  BorderColor #1E3A5F
+  FontSize 13
+}
+skinparam partition {
+  BackgroundColor #E2E8F0
+  FontColor #1E293B
+  FontSize 14
+  FontStyle bold
+}
+
+|Utilisateur|
+start
+:Consulter un match en cours;
+
+|Interface|
+:Démarrer le polling;
+
+repeat
+  :Attendre 10 à 30 s;
+
+  |Système|
+  :GET /api/matches/id;
+
+  |API externe|
+  :Renvoyer score et statut;
+
+  |Système|
+  :Valider la réponse;
+
+  if (Score ou statut modifié ?) then (oui)
+    |Interface|
+    :Mettre à jour l'affichage;
+  else (non)
+    |Interface|
+    :Conserver l'affichage actuel;
+  endif
+
+  |Système|
+  if (Match terminé ?) then (oui)
+    |Interface|
+    :Arrêter le polling;
+    :Afficher badge « Terminé »;
+    |Utilisateur|
+    stop
+  endif
+
+repeat while (Match en cours ?) is (oui)
+->non;
+stop
+
+@enduml

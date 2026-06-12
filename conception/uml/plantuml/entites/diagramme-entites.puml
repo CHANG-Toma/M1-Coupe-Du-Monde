@@ -1,0 +1,82 @@
+@startuml diagramme-entites
+title Diagramme des entités — CDM 2026
+skinparam entity {
+  BackgroundColor #F8FAFC
+  BorderColor #1E3A5F
+  FontSize 12
+}
+skinparam linetype ortho
+
+' Aligné sur le MCD MERISE (conception/merise/01-modele-donnees.md)
+' Le score est porté par MATCH (buts_domicile, buts_exterieur), pas d'entité SCORE séparée
+
+entity "EQUIPE" as equipe {
+  * **id_equipe** : INTEGER <<PK>>
+  --
+  nom : VARCHAR(100)
+  code_pays : CHAR(3)
+  logo_url : VARCHAR(255)
+}
+
+entity "PHASE" as phase {
+  * **id_phase** : INTEGER <<PK>>
+  --
+  nom : VARCHAR(50)
+  type : VARCHAR(30)
+}
+
+entity "STADE" as stade {
+  * **id_stade** : INTEGER <<PK>>
+  --
+  nom : VARCHAR(100)
+  ville : VARCHAR(100)
+}
+
+entity "MATCH" as match {
+  * **id_match** : INTEGER <<PK>>
+  --
+  date_heure : TIMESTAMP
+  statut : VARCHAR(20)
+  buts_domicile : INTEGER
+  buts_exterieur : INTEGER
+}
+
+entity "GROUPE" as groupe {
+  * **id_groupe** : INTEGER <<PK>>
+  --
+  lettre : CHAR(1)
+}
+
+entity "CLASSEMENT" as classement {
+  * **id_equipe** : INTEGER <<PK, FK>>
+  * **id_groupe** : INTEGER <<PK, FK>>
+  --
+  points : INTEGER
+  matchs_joues : INTEGER
+  victoires : INTEGER
+  nuls : INTEGER
+  defaites : INTEGER
+  difference_buts : INTEGER
+}
+
+' APPARTIENT — (1,1) côté MATCH, (0,n) côté PHASE
+phase ||--o{ match : "contient"
+
+' SE_DEROULE_A — (0,1) côté MATCH, (0,n) côté STADE
+stade |o--o{ match : "accueille"
+
+' JOUE — (1,1) côté MATCH, (0,n) côté EQUIPE (2 rôles)
+equipe ||--o{ match : "domicile"
+equipe ||--o{ match : "extérieur"
+
+' CLASSE_DANS — association avec attributs (1 équipe, 1 groupe par ligne ; 4 équipes/groupe en CDM)
+equipe ||--o| classement : "figure dans"
+groupe ||--|{ classement : "regroupe"
+
+note bottom of match
+  **Score** : intégré via
+  buts_domicile et buts_exterieur
+  (pas d'entité SCORE séparée)
+end note
+
+@enduml

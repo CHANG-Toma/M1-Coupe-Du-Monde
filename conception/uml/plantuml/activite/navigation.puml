@@ -1,0 +1,57 @@
+@startuml activite-navigation
+title Navigation entre les phases
+skinparam activity {
+  BackgroundColor #F8FAFC
+  BorderColor #1E3A5F
+  FontSize 13
+}
+skinparam partition {
+  BackgroundColor #E2E8F0
+  FontColor #1E293B
+  FontSize 14
+  FontStyle bold
+}
+
+|Utilisateur|
+start
+:Ouvrir l'application;
+
+|Interface|
+:Afficher le menu des phases;
+
+|Utilisateur|
+repeat
+  :Sélectionner une phase;
+
+  |Système|
+  :Récupérer les matchs de la phase;
+  :Valider et formater les données;
+
+  if (Données disponibles ?) then (oui)
+    |Interface|
+    :Afficher la liste des matchs;
+
+    |Utilisateur|
+    if (Action ?) then (clic sur un match)
+      |Interface|
+      :Ouvrir la page détail;
+      stop
+    elseif (classements / tableau) then
+      |Interface|
+      :Afficher classements ou tableau;
+      stop
+    else (changer de phase)
+      |Utilisateur|
+    endif
+
+  else (non)
+    |Interface|
+    :Afficher « Aucun match »;
+    |Utilisateur|
+  endif
+
+repeat while (Continuer sur les matchs ?) is (oui)
+->non;
+stop
+
+@enduml

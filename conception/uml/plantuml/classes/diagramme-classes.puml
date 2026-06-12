@@ -1,0 +1,112 @@
+@startuml diagramme-classes
+title Diagramme de classes — Application CDM 2026
+
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #1E3A5F
+  FontSize 12
+  ArrowColor #1E3A5F
+}
+skinparam linetype ortho
+
+hide empty members
+skinparam classAttributeIconSize 0
+
+enum StatutMatch {
+  A_VENIR
+  EN_COURS
+  TERMINE
+}
+
+class Equipe {
+  - id : String
+  - nom : String
+  - codePays : String
+  - logoUrl : String
+}
+
+class Match {
+  - id : String
+  - dateHeure : DateTime
+  - statut : StatutMatch
+  - scoreDomicile : Integer
+  - scoreExterieur : Integer
+  --
+  + getScoreAffiche() : String
+  + estEnCours() : Boolean
+}
+
+class Phase {
+  - id : String
+  - nom : String
+  - type : String
+}
+
+class Stade {
+  - id : String
+  - nom : String
+  - ville : String
+}
+
+class Groupe {
+  - id : String
+  - lettre : String
+}
+
+class Classement {
+  - points : Integer
+  - matchsJoues : Integer
+  - victoires : Integer
+  - nuls : Integer
+  - defaites : Integer
+  - differenceButs : Integer
+}
+
+class MatchService {
+  + getMatchesByPhase(phaseId : String) : List<Match>
+  + getMatchById(id : String) : Match
+}
+
+class StandingService {
+  + getStandings() : List<Classement>
+  + getStandingsByGroup(groupeId : String) : List<Classement>
+}
+
+class ApiFootballClient {
+  - apiKey : String
+  --
+  + fetchMatches(params : Object) : Object
+  + fetchStandings() : Object
+  + fetchMatchById(id : String) : Object
+}
+
+' Syntaxe PlantUML : ClassGauche "mult côté droite" -- "mult côté gauche" ClassDroite
+' Aligné sur le MCD MERISE (conception/merise/01-modele-donnees.md)
+
+' APPARTIENT — (1,1) côté Match, (0,n) côté Phase
+Phase "1" -- "0..*" Match
+
+' SE_DEROULE_A — (0,1) côté Match, (0,n) côté Stade
+Stade "0..1" -- "0..*" Match
+
+' JOUE domicile — (1,1) côté Match, (0,n) côté Equipe
+Match "1" -- "0..*" Equipe : domicile
+
+' JOUE extérieur — (1,1) côté Match, (0,n) côté Equipe
+Match "1" -- "0..*" Equipe : extérieur
+
+' CLASSE_DANS — 1 équipe / 1 groupe par ligne de classement (CDM : 4 équipes/groupe)
+Equipe "1" -- "0..1" Classement
+Groupe "1" -- "1..4" Classement
+
+Match --> StatutMatch
+
+MatchService ..> Match : <<use>>
+MatchService ..> Phase : <<use>>
+StandingService ..> Classement : <<use>>
+StandingService ..> Groupe : <<use>>
+
+MatchService ..> ApiFootballClient : <<use>>
+StandingService ..> ApiFootballClient : <<use>>
+
+@enduml

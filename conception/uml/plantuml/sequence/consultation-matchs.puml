@@ -1,0 +1,21 @@
+@startuml sequence-consultation-matchs
+title Consultation d'une liste de matchs
+skinparam sequenceMessageAlign center
+
+actor Utilisateur as U
+participant "Interface\n(Page Matchs)" as UI
+participant "API Route\n/api/matches" as API
+participant "MatchService" as SVC
+participant "API Football\nexterne" as EXT
+
+U -> UI : Sélectionne une phase
+UI -> API : GET /api/matches?phase=groupes
+API -> SVC : getMatchesByPhase(phase)
+SVC -> EXT : Requête HTTP (clé API serveur)
+EXT --> SVC : JSON brut
+SVC -> SVC : Validation des données
+SVC --> API : Liste de matchs typée
+API --> UI : JSON validé
+UI --> U : Affiche les cartes match
+
+@enduml

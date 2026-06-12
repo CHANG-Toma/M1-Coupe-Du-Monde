@@ -1,0 +1,29 @@
+@startuml sequence-mise-a-jour-score
+title Mise à jour en temps réel d'un score
+skinparam sequenceMessageAlign center
+
+actor Utilisateur as U
+participant "Client\nComponent" as UI
+participant "API Route\n/api/matches/[id]" as API
+participant "MatchService" as SVC
+participant "API Football\nexterne" as EXT
+
+note over UI : Polling actif (toutes les 10-30 s)
+
+loop Tant que match en cours
+  UI -> API : GET /api/matches/123
+  API -> SVC : getMatchById(123)
+  SVC -> EXT : Requête HTTP
+  EXT --> SVC : JSON (score, statut)
+  SVC -> SVC : Validation
+  SVC --> API : Match mis à jour
+  API --> UI : JSON
+  UI -> UI : Compare avec état précédent
+  alt Score ou statut modifié
+    UI --> U : Met à jour l'affichage
+  else Aucun changement
+    UI -> UI : Pas de re-render
+  end
+end
+
+@enduml
