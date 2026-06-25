@@ -1,0 +1,21 @@
+import { NextRequest, NextResponse } from "next/server";
+import { getMatches } from "@/lib/api/match-service";
+import type { TypePhase } from "@/lib/types";
+
+export async function GET(request: NextRequest) {
+  try {
+    const { searchParams } = request.nextUrl;
+    const phase = searchParams.get("phase") as TypePhase | null;
+    const equipeId = searchParams.get("equipeId") ?? undefined;
+
+    const matches = await getMatches({ phase: phase ?? undefined, equipeId });
+
+    return NextResponse.json({ data: matches, total: matches.length });
+  } catch (error) {
+    console.error("[API /matches]", error);
+    return NextResponse.json(
+      { error: "Impossible de charger les matchs." },
+      { status: 500 }
+    );
+  }
+}
