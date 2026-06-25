@@ -8,6 +8,7 @@ import StatusBadge from "@/components/ui/StatusBadge";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import ErrorMessage from "@/components/ui/ErrorMessage";
 import { formatDateHeure } from "@/lib/utils/date";
+import { POLL_INTERVAL_MS } from "@/lib/config";
 
 function getFlagEmoji(codePays: string): string {
   const code = codePays.toLowerCase().replace("gb-eng", "gb");
@@ -45,7 +46,7 @@ export default function MatchDetailPage() {
   useEffect(() => { fetchMatch(); }, [fetchMatch]);
 
   usePolling(fetchMatch, {
-    interval: 15_000,
+    interval: POLL_INTERVAL_MS,
     enabled: match?.statut === "en_cours",
     visibilityAware: true,
   });

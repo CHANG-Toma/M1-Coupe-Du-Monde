@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getStandings, getStandingsByGroup } from "@/lib/api/standing-service";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = request.nextUrl;

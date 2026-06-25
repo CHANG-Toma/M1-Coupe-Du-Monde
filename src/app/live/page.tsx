@@ -5,8 +5,7 @@ import Link from "next/link";
 import type { Match } from "@/lib/types";
 import { usePolling } from "@/hooks/usePolling";
 import { formatHeure, formatDateCourte } from "@/lib/utils/date";
-
-const POLL_INTERVAL = 15_000;
+import { POLL_INTERVAL_MS } from "@/lib/config";
 
 function getFlagEmoji(code: string) {
   const c = code.toLowerCase().replace("gb-eng", "gb");
@@ -109,7 +108,7 @@ function UpcomingRow({ match }: { match: Match }) {
 // ─── Indicateur de refresh ────────────────────────────────────────────────────
 
 function RefreshBar({ countdown }: { countdown: number }) {
-  const pct = (countdown / (POLL_INTERVAL / 1000)) * 100;
+  const pct = (countdown / (POLL_INTERVAL_MS / 1000)) * 100;
   return (
     <div className="h-0.5 w-full bg-[#1e2840] rounded-full overflow-hidden">
       <div
@@ -126,7 +125,7 @@ export default function LivePage() {
   const [matches, setMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
-  const [countdown, setCountdown] = useState(POLL_INTERVAL / 1000);
+  const [countdown, setCountdown] = useState(POLL_INTERVAL_MS / 1000);
   const [freshIds, setFreshIds] = useState<Set<string>>(new Set());
 
   const fetchAll = useCallback(async () => {
@@ -153,7 +152,7 @@ export default function LivePage() {
       });
 
       setLastUpdate(new Date());
-      setCountdown(POLL_INTERVAL / 1000);
+      setCountdown(POLL_INTERVAL_MS / 1000);
     } catch {
       // silencieux
     } finally {
@@ -169,7 +168,7 @@ export default function LivePage() {
     return () => clearInterval(t);
   }, [lastUpdate]);
 
-  usePolling(fetchAll, { interval: POLL_INTERVAL, enabled: true, visibilityAware: true });
+  usePolling(fetchAll, { interval: POLL_INTERVAL_MS, enabled: true, visibilityAware: true });
 
   const enCours = matches.filter((m) => m.statut === "en_cours");
   const aVenir  = matches.filter((m) => m.statut === "a_venir").slice(0, 5);

@@ -11,26 +11,24 @@ const NAV_ITEMS = [
   { href: "/bracket", label: "Tableau" },
 ];
 
+import { POLL_INTERVAL_MS } from "@/lib/config";
+
 export default function Header() {
   const pathname = usePathname();
   const [liveCount, setLiveCount] = useState(0);
 
-  // Récupère le nombre de matchs en cours pour le badge
   useEffect(() => {
     async function fetchLiveCount() {
       try {
-        const res = await fetch("/api/matches?phase=groupes");
+        const res = await fetch("/api/matches?live=true");
         const json = await res.json();
-        const count = (json.data ?? []).filter(
-          (m: { statut: string }) => m.statut === "en_cours"
-        ).length;
-        setLiveCount(count);
+        setLiveCount((json.data ?? []).length);
       } catch {
         // silencieux
       }
     }
     fetchLiveCount();
-    const interval = setInterval(fetchLiveCount, 30_000);
+    const interval = setInterval(fetchLiveCount, POLL_INTERVAL_MS);
     return () => clearInterval(interval);
   }, []);
 

@@ -3,50 +3,63 @@
 import { useState, useEffect, useCallback } from "react";
 import type { Match, TypePhase } from "@/lib/types";
 import { usePolling } from "./usePolling";
+import { POLL_INTERVAL_MS } from "@/lib/config";
 
 interface UseMatchesResult {
   matches: Match[];
   loading: boolean;
   error: string | null;
   refresh: () => void;
+  source: "api" | "mock" | null;
 }
 
-const POLLING_INTERVAL = 20_000; // 20 secondes
+interface UseMatchesOptions {
+  /** Polling actif même sans match en cours */
+  alwaysPoll?: boolean;
+  /** Filtre live uniquement (léger côté API) */
+  liveOnly?: boolean;
+}
 
-export function useMatches(phase?: TypePhase): UseMatchesResult {
+export function useMatches(
+  phase?: TypePhase,
+  options: UseMatchesOptions = {}
+): UseMatchesResult {
   const [matches, setMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [source, setSource] = useState<"api" | "mock" | null>(null);
 
   const fetchMatches = useCallback(async () => {
     try {
-      const params = phase ? `?phase=${phase}` : "";
-      const res = await fetch(`/api/matches${params}`);
+      const params = new URLSearchParams();
+      if (phase) params.set("phase", phase);
+      if (options.liveOnly) params.set("live", "true");
+      const qs = params.toString();
+      const res = await fetch(`/api/matches${qs ? `?${qs}` : ""}`);
       if (!res.ok) throw new Error("Erreur réseau");
       const json = await res.json();
       setMatches(json.data ?? []);
+      setSource(json.source ?? null);
       setError(null);
     } catch {
       setError("Impossible de charger les matchs.");
     } finally {
       setLoading(false);
     }
-  }, [phase]);
+  }, [phase, options.liveOnly]);
 
-  // Chargement initial
   useEffect(() => {
     setLoading(true);
     fetchMatches();
   }, [fetchMatches]);
 
-  // Vérifie si un match est en cours (pour activer le polling)
   const hasMatchEnCours = matches.some((m) => m.statut === "en_cours");
 
   usePolling(fetchMatches, {
-    interval: POLLING_INTERVAL,
-    enabled: hasMatchEnCours,
+    interval: POLL_INTERVAL_MS,
+    enabled: options.alwaysPoll || hasMatchEnCours,
     visibilityAware: true,
   });
 
-  return { matches, loading, error, refresh: fetchMatches };
+  return { matches, loading, error, refresh: fetchMatches, source };
 }

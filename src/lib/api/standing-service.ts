@@ -48,7 +48,7 @@ async function getApiStandings(): Promise<GroupeClassement[]> {
 
   const res = await fetch(`${baseUrl}/standings?league=1&season=2026`, {
     headers: { "x-apisports-key": apiKey! },
-    next: { revalidate: 300 },
+    cache: "no-store",
   });
 
   if (!res.ok) {

@@ -1,7 +1,7 @@
 import { getStandings } from "@/lib/api/standing-service";
 import StandingsTable from "@/components/standings/StandingsTable";
 
-export const revalidate = 120;
+export const dynamic = "force-dynamic";
 
 export default async function StandingsPage() {
   let standings = null;

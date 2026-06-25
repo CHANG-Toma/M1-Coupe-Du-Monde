@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getMatches } from "@/lib/api/match-service";
+import { getMatches, isUsingMockData } from "@/lib/api/match-service";
 import type { TypePhase } from "@/lib/types";
 
-// Pas de cache — chaque requête retourne des données fraîches (polling live)
 export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
@@ -10,10 +9,19 @@ export async function GET(request: NextRequest) {
     const { searchParams } = request.nextUrl;
     const phase = searchParams.get("phase") as TypePhase | null;
     const equipeId = searchParams.get("equipeId") ?? undefined;
+    const live = searchParams.get("live") === "true";
 
-    const matches = await getMatches({ phase: phase ?? undefined, equipeId });
+    const matches = await getMatches({
+      phase: phase ?? undefined,
+      equipeId,
+      live: live || undefined,
+    });
 
-    return NextResponse.json({ data: matches, total: matches.length });
+    return NextResponse.json({
+      data: matches,
+      total: matches.length,
+      source: isUsingMockData() ? "mock" : "api",
+    });
   } catch (error) {
     console.error("[API /matches]", error);
     return NextResponse.json(
