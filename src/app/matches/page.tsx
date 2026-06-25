@@ -15,11 +15,10 @@ function MatchesContent() {
   const { matches, loading, error, refresh } = useMatches(phase);
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Matchs</h1>
-        <PhaseNav />
-      </div>
+    <div className="space-y-5">
+      <h1 className="text-base font-bold text-white">Matchs</h1>
+
+      <PhaseNav />
 
       {loading ? (
         <LoadingSpinner message="Chargement des matchs..." />
@@ -28,9 +27,9 @@ function MatchesContent() {
       ) : (
         <>
           {matches.some((m) => m.statut === "en_cours") && (
-            <div className="flex items-center gap-2 text-sm text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 px-3 py-2 rounded-lg">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Mise à jour automatique activée — matchs en cours
+            <div className="flex items-center gap-2 text-xs text-[#00e676] bg-[#0d1f14] border border-[#00e676]/20 px-3 py-2 rounded-lg">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#00e676] animate-pulse" />
+              Mise à jour automatique — matchs en cours
             </div>
           )}
           <MatchList matches={matches} />

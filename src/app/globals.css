@@ -3,37 +3,30 @@
 @tailwind utilities;
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0e1a;
-    --foreground: #f1f5f9;
-  }
+  --bg: #0b0f1a;
+  --card: #131929;
+  --card-border: #1e2840;
+  --text: #f0f4ff;
+  --muted: #6b7a9e;
+  --live: #00e676;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-/* Scrollbar fine sur les overflow horizontaux */
-.overflow-x-auto::-webkit-scrollbar {
-  height: 4px;
-}
-.overflow-x-auto::-webkit-scrollbar-track {
-  background: transparent;
-}
-.overflow-x-auto::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 2px;
-}
+/* Scrollbar discrète */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #1e2840; border-radius: 2px; }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-balance { text-wrap: balance; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 0.75rem;
   }
 }

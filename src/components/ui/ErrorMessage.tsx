@@ -11,12 +11,11 @@ export default function ErrorMessage({
 }: ErrorMessageProps) {
   return (
     <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-      <div className="text-4xl">⚠️</div>
-      <p className="text-gray-600 dark:text-gray-400 max-w-sm">{message}</p>
+      <p className="text-[#6b7a9e] text-sm max-w-xs">{message}</p>
       {onRetry && (
         <button
           onClick={onRetry}
-          className="px-4 py-2 bg-cdm-blue text-white rounded-lg text-sm font-medium hover:bg-cdm-blue/90 transition-colors"
+          className="px-4 py-2 bg-[#131929] border border-[#1e2840] text-white rounded-lg text-sm hover:border-[#4a7ef5]/40 transition-colors"
         >
           Réessayer
         </button>

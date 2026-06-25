@@ -4,11 +4,20 @@ import { useState, useEffect, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 import type { Match } from "@/lib/types";
 import { usePolling } from "@/hooks/usePolling";
-import TeamFlag from "@/components/ui/TeamFlag";
 import StatusBadge from "@/components/ui/StatusBadge";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import ErrorMessage from "@/components/ui/ErrorMessage";
 import { formatDateHeure } from "@/lib/utils/date";
+
+function getFlagEmoji(codePays: string): string {
+  const code = codePays.toLowerCase().replace("gb-eng", "gb");
+  try {
+    const codePoints = code.split("").map((c) => 0x1f1e6 + c.charCodeAt(0) - 97);
+    return String.fromCodePoint(...codePoints);
+  } catch {
+    return "🏳";
+  }
+}
 
 export default function MatchDetailPage() {
   const params = useParams();
@@ -22,7 +31,7 @@ export default function MatchDetailPage() {
   const fetchMatch = useCallback(async () => {
     try {
       const res = await fetch(`/api/matches/${id}`);
-      if (!res.ok) throw new Error("Erreur réseau");
+      if (!res.ok) throw new Error();
       const json = await res.json();
       setMatch(json.data);
       setError(null);
@@ -33,9 +42,7 @@ export default function MatchDetailPage() {
     }
   }, [id]);
 
-  useEffect(() => {
-    fetchMatch();
-  }, [fetchMatch]);
+  useEffect(() => { fetchMatch(); }, [fetchMatch]);
 
   usePolling(fetchMatch, {
     interval: 15_000,
@@ -46,104 +53,82 @@ export default function MatchDetailPage() {
   if (loading) return <LoadingSpinner message="Chargement du match..." />;
   if (error || !match) return <ErrorMessage message={error ?? "Match introuvable."} onRetry={fetchMatch} />;
 
-  const scoreVisible = match.statut === "en_cours" || match.statut === "termine";
+  const isEnCours = match.statut === "en_cours";
+  const scoreVisible = isEnCours || match.statut === "termine";
 
   return (
-    <div className="space-y-6 max-w-2xl mx-auto">
-      {/* Bouton retour */}
+    <div className="space-y-5 max-w-lg mx-auto">
+      {/* Retour */}
       <button
         onClick={() => router.back()}
-        className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-cdm-blue dark:hover:text-blue-400 transition-colors"
+        className="text-sm text-[#6b7a9e] hover:text-white transition-colors"
       >
-        ← Retour aux matchs
+        ← Retour
       </button>
 
-      {/* Carte principale */}
-      <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden shadow-sm">
-        {/* En-tête : phase + groupe */}
-        <div className="bg-cdm-blue px-6 py-4 text-white text-center">
-          <p className="text-sm font-medium opacity-90">
-            {match.groupe ? `Groupe ${match.groupe.lettre} — ` : ""}{match.phase.nom}
-          </p>
-          <p className="text-xs opacity-70 mt-0.5">{formatDateHeure(match.dateHeure)}</p>
-        </div>
+      {/* Carte score principale */}
+      <div className={`rounded-xl border p-6 ${
+        isEnCours
+          ? "bg-[#0d1f14] border-[#00e676]/40"
+          : "bg-[#131929] border-[#1e2840]"
+      }`}>
+        {/* Phase + groupe */}
+        <p className="text-center text-xs text-[#6b7a9e] mb-5">
+          {match.groupe ? `Groupe ${match.groupe.lettre} · ` : ""}{match.phase.nom}
+        </p>
 
-        {/* Corps : équipes + score */}
-        <div className="px-6 py-8">
-          <div className="flex items-center justify-between gap-6">
-            {/* Équipe domicile */}
-            <div className="flex-1 flex flex-col items-center gap-3 min-w-0">
-              <TeamFlag equipe={match.equipeDomicile} size="lg" align="center" showName={false} />
-              <span className="text-sm font-semibold text-center text-gray-800 dark:text-gray-100">
-                {match.equipeDomicile.nom}
-              </span>
-            </div>
+        {/* Équipes + score */}
+        <div className="flex items-center justify-between gap-4">
+          {/* Domicile */}
+          <div className="flex-1 flex flex-col items-center gap-2 min-w-0">
+            <span className="text-4xl">{getFlagEmoji(match.equipeDomicile.codePays)}</span>
+            <span className="text-sm font-semibold text-white text-center">
+              {match.equipeDomicile.nom}
+            </span>
+          </div>
 
-            {/* Score central */}
-            <div className="flex flex-col items-center gap-2 shrink-0">
-              {scoreVisible ? (
-                <div className="flex items-center gap-4">
-                  <span className={`text-5xl font-black tabular-nums ${match.statut === "en_cours" ? "text-green-600 dark:text-green-400" : "text-gray-900 dark:text-white"}`}>
-                    {match.scoreDomicile}
-                  </span>
-                  <span className="text-2xl text-gray-300 dark:text-gray-600 font-light">–</span>
-                  <span className={`text-5xl font-black tabular-nums ${match.statut === "en_cours" ? "text-green-600 dark:text-green-400" : "text-gray-900 dark:text-white"}`}>
-                    {match.scoreExterieur}
-                  </span>
-                </div>
-              ) : (
-                <div className="text-2xl font-semibold text-gray-400 dark:text-gray-500 tracking-widest">
-                  vs
-                </div>
-              )}
-              <StatusBadge statut={match.statut} minuteJeu={match.minuteJeu} />
-            </div>
+          {/* Score / vs */}
+          <div className="flex flex-col items-center gap-2 shrink-0">
+            {scoreVisible ? (
+              <div className="flex items-center gap-4">
+                <span className={`text-4xl font-black tabular-nums ${isEnCours ? "text-[#00e676]" : "text-white"}`}>
+                  {match.scoreDomicile}
+                </span>
+                <span className="text-xl text-[#2a3a5a]">–</span>
+                <span className={`text-4xl font-black tabular-nums ${isEnCours ? "text-[#00e676]" : "text-white"}`}>
+                  {match.scoreExterieur}
+                </span>
+              </div>
+            ) : (
+              <span className="text-xl font-semibold text-[#4a5a7a]">vs</span>
+            )}
+            <StatusBadge statut={match.statut} minuteJeu={match.minuteJeu} />
+          </div>
 
-            {/* Équipe extérieur */}
-            <div className="flex-1 flex flex-col items-center gap-3 min-w-0">
-              <TeamFlag equipe={match.equipeExterieur} size="lg" align="center" showName={false} />
-              <span className="text-sm font-semibold text-center text-gray-800 dark:text-gray-100">
-                {match.equipeExterieur.nom}
-              </span>
-            </div>
+          {/* Extérieur */}
+          <div className="flex-1 flex flex-col items-center gap-2 min-w-0">
+            <span className="text-4xl">{getFlagEmoji(match.equipeExterieur.codePays)}</span>
+            <span className="text-sm font-semibold text-white text-center">
+              {match.equipeExterieur.nom}
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Informations supplémentaires */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 divide-y divide-gray-50 dark:divide-gray-700">
-        {/* Date & heure */}
+      {/* Infos */}
+      <div className="rounded-xl border border-[#1e2840] overflow-hidden divide-y divide-[#1e2840]">
         <InfoRow label="Date et heure" value={formatDateHeure(match.dateHeure)} />
-
-        {/* Phase */}
         <InfoRow label="Phase" value={match.phase.nom} />
-
-        {/* Groupe */}
-        {match.groupe && (
-          <InfoRow label="Groupe" value={`Groupe ${match.groupe.lettre}`} />
-        )}
-
-        {/* Stade */}
-        {match.stade ? (
-          <InfoRow
-            label="Stade"
-            value={`${match.stade.nom}${match.stade.ville ? ` — ${match.stade.ville}` : ""}`}
-          />
-        ) : (
-          <InfoRow label="Stade" value="Non renseigné" muted />
-        )}
-
-        {/* Statut */}
-        <div className="flex items-center justify-between px-5 py-3">
-          <span className="text-sm text-gray-500 dark:text-gray-400">Statut</span>
-          <StatusBadge statut={match.statut} minuteJeu={match.minuteJeu} />
-        </div>
+        {match.groupe && <InfoRow label="Groupe" value={`Groupe ${match.groupe.lettre}`} />}
+        {match.stade
+          ? <InfoRow label="Stade" value={`${match.stade.nom}${match.stade.ville ? ` · ${match.stade.ville}` : ""}`} />
+          : <InfoRow label="Stade" value="Non renseigné" muted />
+        }
       </div>
 
-      {/* Indicateur polling */}
-      {match.statut === "en_cours" && (
-        <p className="text-xs text-center text-gray-400 dark:text-gray-600">
-          Score mis à jour automatiquement toutes les 15 secondes
+      {isEnCours && (
+        <p className="text-[11px] text-center text-[#4a5a7a]">
+          Score rafraîchi automatiquement toutes les 15 secondes
         </p>
       )}
     </div>
@@ -152,11 +137,9 @@ export default function MatchDetailPage() {
 
 function InfoRow({ label, value, muted = false }: { label: string; value: string; muted?: boolean }) {
   return (
-    <div className="flex items-center justify-between px-5 py-3">
-      <span className="text-sm text-gray-500 dark:text-gray-400">{label}</span>
-      <span className={`text-sm font-medium ${muted ? "text-gray-400 dark:text-gray-600 italic" : "text-gray-800 dark:text-gray-200"}`}>
-        {value}
-      </span>
+    <div className="flex items-center justify-between px-4 py-3 bg-[#131929]">
+      <span className="text-sm text-[#6b7a9e]">{label}</span>
+      <span className={`text-sm ${muted ? "text-[#4a5a7a] italic" : "text-white/90"}`}>{value}</span>
     </div>
   );
 }

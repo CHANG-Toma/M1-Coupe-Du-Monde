@@ -15,33 +15,26 @@ export default async function StandingsPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-        Classements — Phase de groupes
-      </h1>
+      <h1 className="text-base font-bold text-white">Classements — Phase de groupes</h1>
 
       {error ? (
-        <div className="text-center py-16">
-          <p className="text-gray-500 dark:text-gray-400">{error}</p>
-        </div>
+        <p className="text-[#6b7a9e] text-sm py-16 text-center">{error}</p>
       ) : !standings || standings.length === 0 ? (
         <div className="text-center py-16">
-          <span className="text-4xl block mb-3">📊</span>
-          <p className="text-gray-500 dark:text-gray-400">
+          <p className="text-[#6b7a9e] text-sm">
             Les classements ne sont pas encore disponibles.
           </p>
         </div>
       ) : (
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2">
           {standings.map((groupe) => (
             <StandingsTable key={groupe.groupe.id} groupe={groupe} />
           ))}
         </div>
       )}
 
-      <p className="text-xs text-gray-400 dark:text-gray-600 text-center">
-        ● Les 2 premiers de chaque groupe se qualifient pour les seizièmes de finale.
-        <br />
-        Les 8 meilleurs troisièmes se qualifient également.
+      <p className="text-[11px] text-[#4a5a7a] text-center">
+        ● Les 2 premiers de chaque groupe + les 8 meilleurs troisièmes se qualifient.
       </p>
     </div>
   );

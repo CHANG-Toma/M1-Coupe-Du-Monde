@@ -25,10 +25,10 @@ export default function PhaseNav() {
               key={phase.id}
               onClick={() => handleClick(phase.type)}
               aria-current={isActive ? "page" : undefined}
-              className={`px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cdm-blue/50 ${
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap transition-colors focus:outline-none ${
                 isActive
-                  ? "bg-cdm-blue text-white shadow-md shadow-cdm-blue/20"
-                  : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-600 hover:border-cdm-blue/40 hover:text-cdm-blue"
+                  ? "bg-[#4a7ef5] text-white"
+                  : "bg-[#131929] text-[#6b7a9e] border border-[#1e2840] hover:text-white hover:border-[#2a3a5a]"
               }`}
             >
               {phase.nom}

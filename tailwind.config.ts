@@ -10,11 +10,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        bg: "#0b0f1a",
+        card: "#131929",
+        border: "#1e2840",
+        accent: "#4a7ef5",
+        live: "#00e676",
+        muted: "#6b7a9e",
         cdm: {
-          blue: "#003DA5",
-          red: "#C8102E",
-          gold: "#FFB300",
-          dark: "#0A0E1A",
+          blue: "#4a7ef5",
+          green: "#00e676",
+          dark: "#0b0f1a",
         },
       },
       fontFamily: {

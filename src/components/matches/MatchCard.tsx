@@ -1,66 +1,87 @@
 import Link from "next/link";
 import type { Match } from "@/lib/types";
-import StatusBadge from "@/components/ui/StatusBadge";
-import TeamFlag from "@/components/ui/TeamFlag";
 import { formatDateCourte, formatHeure } from "@/lib/utils/date";
 
 interface MatchCardProps {
   match: Match;
 }
 
+function getFlagEmoji(codePays: string): string {
+  const code = codePays.toLowerCase().replace("gb-eng", "gb");
+  try {
+    const codePoints = code
+      .split("")
+      .map((c) => 0x1f1e6 + c.charCodeAt(0) - 97);
+    return String.fromCodePoint(...codePoints);
+  } catch {
+    return "🏳";
+  }
+}
+
+function shortName(nom: string): string {
+  const map: Record<string, string> = {
+    "États-Unis": "USA",
+    "Arabie Saoudite": "Arabie S.",
+    "Corée du Sud": "Corée S.",
+    "Côte d'Ivoire": "C. d'Ivoire",
+  };
+  return map[nom] ?? nom;
+}
+
 export default function MatchCard({ match }: MatchCardProps) {
-  const scoreVisible = match.statut === "en_cours" || match.statut === "termine";
+  const isTermine = match.statut === "termine";
+  const isEnCours = match.statut === "en_cours";
+  const showScore = isTermine || isEnCours;
 
   return (
     <Link href={`/matches/${match.id}`}>
-      <article className="bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 hover:border-cdm-blue/40 hover:shadow-md transition-all duration-200 overflow-hidden group">
-        {/* En-tête : groupe / phase + date */}
-        <div className="flex items-center justify-between px-4 py-2 bg-gray-50 dark:bg-gray-700/50 border-b border-gray-100 dark:border-gray-700">
-          <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">
-            {match.groupe ? `Groupe ${match.groupe.lettre}` : match.phase.nom}
-          </span>
-          <span className="text-xs text-gray-500 dark:text-gray-400">
-            {formatDateCourte(match.dateHeure)} · {formatHeure(match.dateHeure)}
+      <article
+        className={`flex items-center justify-between gap-3 rounded-lg px-4 py-3.5 border transition-colors group ${
+          isEnCours
+            ? "bg-[#0d1f14] border-[#00e676]/30 hover:border-[#00e676]/60"
+            : "bg-[#131929] border-[#1e2840] hover:border-[#2a3a5a]"
+        }`}
+      >
+        {/* Groupe / phase */}
+        <div className="hidden sm:block w-16 shrink-0">
+          <span className="text-[11px] text-[#4a5a7a]">
+            {match.groupe ? `Gr. ${match.groupe.lettre}` : ""}
           </span>
         </div>
 
-        {/* Corps : équipes + score */}
-        <div className="px-4 py-4 flex items-center justify-between gap-4">
-          {/* Équipe domicile */}
-          <div className="flex-1 min-w-0">
-            <TeamFlag equipe={match.equipeDomicile} size="md" align="left" />
-          </div>
-
-          {/* Score / VS */}
-          <div className="flex flex-col items-center gap-1 shrink-0">
-            {scoreVisible ? (
-              <div className="flex items-center gap-3">
-                <span className={`text-2xl font-bold tabular-nums ${match.statut === "en_cours" ? "text-green-600 dark:text-green-400" : "text-gray-800 dark:text-gray-100"}`}>
-                  {match.scoreDomicile}
-                </span>
-                <span className="text-gray-400 dark:text-gray-500 font-semibold">–</span>
-                <span className={`text-2xl font-bold tabular-nums ${match.statut === "en_cours" ? "text-green-600 dark:text-green-400" : "text-gray-800 dark:text-gray-100"}`}>
-                  {match.scoreExterieur}
-                </span>
-              </div>
-            ) : (
-              <span className="text-lg font-semibold text-gray-400 dark:text-gray-500 tracking-widest">vs</span>
-            )}
-            <StatusBadge statut={match.statut} minuteJeu={match.minuteJeu} />
-          </div>
-
-          {/* Équipe extérieur */}
-          <div className="flex-1 min-w-0 flex justify-end">
-            <TeamFlag equipe={match.equipeExterieur} size="md" align="right" />
-          </div>
+        {/* Équipe domicile */}
+        <div className="flex items-center gap-2 flex-1 min-w-0">
+          <span className="text-lg leading-none shrink-0">{getFlagEmoji(match.equipeDomicile.codePays)}</span>
+          <span className="text-sm text-white/90 group-hover:text-white truncate">
+            {shortName(match.equipeDomicile.nom)}
+          </span>
         </div>
 
-        {/* Stade */}
-        {match.stade && (
-          <div className="px-4 pb-2 text-xs text-gray-400 dark:text-gray-500 text-center">
-            📍 {match.stade.nom}{match.stade.ville ? ` — ${match.stade.ville}` : ""}
-          </div>
-        )}
+        {/* Centre */}
+        <div className="flex flex-col items-center shrink-0 min-w-[72px]">
+          {showScore ? (
+            <span className={`text-sm font-bold tabular-nums ${isEnCours ? "text-[#00e676]" : "text-[#6b7a9e]"}`}>
+              {match.scoreDomicile} – {match.scoreExterieur}
+            </span>
+          ) : (
+            <span className="text-sm font-semibold text-white tabular-nums">
+              {formatHeure(match.dateHeure)}
+            </span>
+          )}
+          <span className="text-[11px] text-[#4a5a7a] mt-0.5">
+            {isEnCours && match.minuteJeu
+              ? `${match.minuteJeu}'`
+              : formatDateCourte(match.dateHeure)}
+          </span>
+        </div>
+
+        {/* Équipe extérieur */}
+        <div className="flex items-center gap-2 flex-1 min-w-0 justify-end">
+          <span className="text-sm text-white/90 group-hover:text-white truncate text-right">
+            {shortName(match.equipeExterieur.nom)}
+          </span>
+          <span className="text-lg leading-none shrink-0">{getFlagEmoji(match.equipeExterieur.codePays)}</span>
+        </div>
       </article>
     </Link>
   );

@@ -13,14 +13,13 @@ export default function MatchList({
   if (matches.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center gap-3 py-16 text-center">
-        <span className="text-4xl">⚽</span>
-        <p className="text-gray-500 dark:text-gray-400 max-w-xs">{emptyMessage}</p>
+        <p className="text-[#6b7a9e] text-sm max-w-xs">{emptyMessage}</p>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-2">
       {matches.map((match) => (
         <MatchCard key={match.id} match={match} />
       ))}

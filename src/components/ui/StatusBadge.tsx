@@ -9,15 +9,15 @@ interface StatusBadgeProps {
 const CONFIG: Record<StatutMatch, { label: string; className: string }> = {
   a_venir: {
     label: "À venir",
-    className: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
+    className: "bg-[#1a2240] text-[#4a7ef5] border border-[#4a7ef5]/20",
   },
   en_cours: {
     label: "En cours",
-    className: "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300",
+    className: "bg-[#0d2818] text-[#00e676] border border-[#00e676]/30",
   },
   termine: {
     label: "Terminé",
-    className: "bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400",
+    className: "bg-[#131929] text-[#6b7a9e] border border-[#1e2840]",
   },
 };
 
@@ -26,10 +26,10 @@ export default function StatusBadge({ statut, minuteJeu, className = "" }: Statu
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold ${colorClass} ${className}`}
+      className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-medium ${colorClass} ${className}`}
     >
       {statut === "en_cours" && (
-        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+        <span className="w-1.5 h-1.5 rounded-full bg-[#00e676] animate-pulse" />
       )}
       {statut === "en_cours" && minuteJeu ? `${minuteJeu}'` : label}
     </span>
