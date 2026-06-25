@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 const NAV_ITEMS = [
   { href: "/", label: "Accueil" },
   { href: "/matches", label: "Matchs" },
+  { href: "/live", label: "⚡ Live", highlight: true },
   { href: "/standings", label: "Classements" },
   { href: "/bracket", label: "Tableau" },
 ];
@@ -24,7 +25,13 @@ export default function BottomNav() {
               key={item.href}
               href={item.href}
               className={`flex-1 text-center py-3 text-xs transition-colors ${
-                isActive ? "text-white font-semibold" : "text-[#6b7a9e]"
+                isActive
+                  ? item.highlight
+                    ? "text-[#00e676] font-bold"
+                    : "text-white font-semibold"
+                  : item.highlight
+                  ? "text-[#00e676]/60"
+                  : "text-[#6b7a9e]"
               }`}
             >
               {item.label}

@@ -9,6 +9,10 @@ const eq = (id: string, nom: string, codePays: string): Match["equipeDomicile"] 
   logoUrl: `https://flagcdn.com/${codePays.toLowerCase()}.svg`,
 });
 
+// ─── Heure de démarrage des matchs en cours (fixée au chargement du module) ──
+// Simule un match démarré il y a ~67 min — la minute s'incrémente en temps réel
+const LIVE_MATCH_START = new Date(Date.now() - 67 * 60_000).toISOString();
+
 // ─── Stades ───────────────────────────────────────────────────────────────────
 
 const STADES = {
@@ -180,7 +184,7 @@ export const MOCK_MATCHES: Match[] = [
   },
   {
     id: "m011",
-    dateHeure: "2026-06-23T21:00:00-05:00",
+    dateHeure: LIVE_MATCH_START,
     statut: "en_cours",
     scoreDomicile: 1,
     scoreExterieur: 0,
@@ -189,11 +193,10 @@ export const MOCK_MATCHES: Match[] = [
     phase: P.groupes,
     stade: STADES.metlife,
     groupe: G("B"),
-    minuteJeu: 67,
   },
   {
     id: "m012",
-    dateHeure: "2026-06-23T21:00:00-05:00",
+    dateHeure: LIVE_MATCH_START,
     statut: "en_cours",
     scoreDomicile: 0,
     scoreExterieur: 0,
@@ -202,7 +205,6 @@ export const MOCK_MATCHES: Match[] = [
     phase: P.groupes,
     stade: STADES.gillette,
     groupe: G("B"),
-    minuteJeu: 67,
   },
 
   // ═══════════════════════════════════════════════════════════════════════════

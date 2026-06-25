@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { getMatches } from "@/lib/api/match-service";
 import type { TypePhase } from "@/lib/types";
 
+// Pas de cache — chaque requête retourne des données fraîches (polling live)
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = request.nextUrl;

@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: cdm2026-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cdm2026
+      POSTGRES_USER: cdm
+      POSTGRES_PASSWORD: cdm2026
+    ports:
+      - "5432:5432"
+    volumes:
+      - cdm_data:/var/lib/postgresql/data
+      - ./db:/docker-entrypoint-initdb.d   # exécuté automatiquement au premier démarrage
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cdm -d cdm2026"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  cdm_data:

@@ -65,7 +65,7 @@ function MatchRow({ match }: { match: Match }) {
 
   return (
     <Link href={`/matches/${match.id}`}>
-      <div className="flex items-center justify-between gap-3 rounded-lg bg-[#131929] border border-[#1e2840] px-4 py-3.5 hover:border-[#2a3a5a] transition-colors group">
+      <div className="flex items-center justify-between gap-3 rounded-lg bg-[#131929] border border-[#1e2840] px-4 py-3.5 hover:border-[#2a3a5a] hover:scale-[1.01] transition-all duration-200 group">
         {/* Équipe domicile */}
         <span className="flex-1 text-sm text-white/90 group-hover:text-white truncate">
           {shortName(match.equipeDomicile.nom)}
@@ -164,10 +164,10 @@ export default async function HomePage() {
     .reverse();
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 animate-fade-in">
       {/* Hero */}
       <section className="pt-2">
-        <div className="flex flex-col items-center gap-3 mb-8 text-center">
+        <div className="flex flex-col items-center gap-3 mb-8 text-center animate-fade-up">
           <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#4a7ef5] bg-[#4a7ef5]/10 border border-[#4a7ef5]/20 px-3 py-1 rounded-full">
             FIFA World Cup 2026 · USA · Canada · Mexique
           </span>
@@ -182,7 +182,13 @@ export default async function HomePage() {
         {/* Match(s) en cours */}
         {enCours.length > 0 && (
           <div className="space-y-3">
-            <SectionTitle>En direct</SectionTitle>
+            <div className="flex items-center justify-between">
+              <SectionTitle>En direct</SectionTitle>
+              <Link href="/live" className="text-xs text-[#00e676] hover:underline flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00e676] animate-pulse" />
+                Tableau de bord live
+              </Link>
+            </div>
             {enCours.map((m) => (
               <LiveMatchCard key={m.id} match={m} />
             ))}
@@ -192,7 +198,7 @@ export default async function HomePage() {
 
       {/* Prochains matchs */}
       {aVenir.length > 0 && (
-        <section>
+        <section className="animate-fade-up" style={{ animationDelay: "100ms" }}>
           <div className="flex items-center justify-between mb-3">
             <SectionTitle>Prochains Matchs</SectionTitle>
             <Link href="/matches?phase=groupes" className="text-xs text-[#4a7ef5] hover:underline">
@@ -209,7 +215,7 @@ export default async function HomePage() {
 
       {/* Derniers résultats */}
       {termines.length > 0 && (
-        <section>
+        <section className="animate-fade-up" style={{ animationDelay: "200ms" }}>
           <div className="flex items-center justify-between mb-3">
             <SectionTitle>Derniers Résultats</SectionTitle>
             <Link href="/matches?phase=groupes" className="text-xs text-[#4a7ef5] hover:underline">
