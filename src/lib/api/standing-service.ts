@@ -1,7 +1,15 @@
 import type { GroupeClassement } from "@/lib/types";
 import { MOCK_STANDINGS } from "@/data/mock-standings";
-import { isDbAvailable } from "@/lib/db/client";
-import { getStandingsFromDb } from "@/lib/db/db-standing-service";
+
+async function tryDbStandings() {
+  try {
+    const { isDbAvailable } = await import("@/lib/db/client");
+    if (!(await isDbAvailable())) return null;
+    return await import("@/lib/db/db-standing-service");
+  } catch {
+    return null;
+  }
+}
 
 const USE_MOCK = process.env.USE_MOCK_DATA === "true" || !process.env.API_FOOTBALL_KEY;
 
@@ -15,9 +23,10 @@ export async function getStandings(): Promise<GroupeClassement[]> {
     console.warn("[standing-service] API indisponible, tentative DB.");
   }
 
-  if (await isDbAvailable()) {
+  const db = await tryDbStandings();
+  if (db) {
     try {
-      return await getStandingsFromDb();
+      return await db.getStandingsFromDb();
     } catch {
       console.warn("[standing-service] DB indisponible, fallback mock.");
     }

@@ -9,9 +9,8 @@ const eq = (id: string, nom: string, codePays: string): Match["equipeDomicile"] 
   logoUrl: `https://flagcdn.com/${codePays.toLowerCase()}.svg`,
 });
 
-// ─── Heure de démarrage des matchs en cours (fixée au chargement du module) ──
-// Simule un match démarré il y a ~67 min — la minute s'incrémente en temps réel
-const LIVE_MATCH_START = new Date(Date.now() - 67 * 60_000).toISOString();
+// dateHeure des matchs en cours : placeholder, recalculée dynamiquement par hydrateLiveMatch
+const LIVE_MATCH_START = new Date(Date.now() - 45 * 60_000).toISOString();
 
 // ─── Stades ───────────────────────────────────────────────────────────────────
 

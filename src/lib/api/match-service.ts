@@ -1,7 +1,16 @@
 import type { Match, FiltresMatchs, TypePhase } from "@/lib/types";
 import { MOCK_MATCHES } from "@/data/mock-matches";
-import { isDbAvailable } from "@/lib/db/client";
-import { getMatchesFromDb, getMatchByIdFromDb } from "@/lib/db/db-match-service";
+
+// Imports DB en dynamique — évite que pg crashe l'initialisation du module
+async function tryDb() {
+  try {
+    const { isDbAvailable } = await import("@/lib/db/client");
+    if (!(await isDbAvailable())) return null;
+    return await import("@/lib/db/db-match-service");
+  } catch {
+    return null;
+  }
+}
 
 const USE_MOCK = process.env.USE_MOCK_DATA === "true" || !process.env.API_FOOTBALL_KEY;
 
@@ -21,10 +30,11 @@ export async function getMatches(filtres?: FiltresMatchs): Promise<Match[]> {
   }
 
   // 3. Fallback base de données PostgreSQL
-  if (await isDbAvailable()) {
+  const db = await tryDb();
+  if (db) {
     try {
       console.info("[match-service] Utilisation de la base de données.");
-      return await getMatchesFromDb(filtres);
+      return await db.getMatchesFromDb(filtres);
     } catch (dbErr) {
       console.warn("[match-service] DB indisponible, fallback mock:", (dbErr as Error).message);
     }
@@ -47,9 +57,11 @@ export async function getMatchById(id: string): Promise<Match | null> {
     // fallback DB
   }
 
-  if (await isDbAvailable()) {
+  const db = await tryDb();
+  if (db) {
     try {
-      return await getMatchByIdFromDb(id);
+      const match = await db.getMatchByIdFromDb(id);
+      if (match) return match;
     } catch {
       // fallback mock
     }
@@ -62,35 +74,41 @@ export async function getMatchById(id: string): Promise<Match | null> {
 // ─── Données mockées ─────────────────────────────────────────────────────────
 
 /**
- * Pour les matchs en cours, on calcule dynamiquement :
- * - minuteJeu  : basé sur l'heure actuelle - dateHeure du match
- * - statut     : passe automatiquement à "termine" après 105 min (90 + arrêts de jeu)
- * - scores     : évolue de façon déterministe selon la minute (simulation réaliste)
+ * Pour les matchs mock en cours :
+ * - Kick-off ancré sur une heure fixe du jour en UTC → stable entre redémarrages
+ * - La minute s'incrémente en temps réel depuis ce kick-off (cycle 90 min)
+ * - Chaque match a un kick-off décalé pour avoir des minutes différentes
  */
 function hydrateLiveMatch(match: Match): Match {
   if (match.statut !== "en_cours") return match;
 
-  const now = Date.now();
-  const start = new Date(match.dateHeure).getTime();
-  const elapsedMs = now - start;
-  const elapsedMin = Math.floor(elapsedMs / 60_000);
+  const nowMs = Date.now();
 
-  // Match terminé automatiquement après 105 min
-  if (elapsedMin >= 105) {
-    return { ...match, statut: "termine", minuteJeu: undefined };
-  }
+  // Minuit UTC du jour courant
+  const todayUTC = new Date();
+  todayUTC.setUTCHours(0, 0, 0, 0);
 
-  // Minute réelle (1ère mi-temps: 1-45, pause, 2ème mi-temps: 46-90+)
-  const minuteJeu = Math.max(1, Math.min(elapsedMin, 90));
+  // Heures de coup d'envoi fictives en minutes depuis minuit UTC
+  // Choisies pour donner ~78' et ~68' à 15:00 UTC — s'incrémentent naturellement
+  const KICKOFF_UTC_MIN: Record<string, number> = {
+    m011: 13 * 60 + 43, // 13:43 UTC → ~78' à 15:01 UTC
+    m012: 13 * 60 + 53, // 13:53 UTC → ~68' à 15:01 UTC
+  };
+  const kickoffMin = KICKOFF_UTC_MIN[match.id] ?? 13 * 60 + 30;
+  const kickoffMs = todayUTC.getTime() + kickoffMin * 60_000;
 
-  // Simulation déterministe des buts : un but toutes les ~25 min par équipe
-  // basé sur les seeds des ids (stable entre les appels)
+  // Minutes écoulées depuis le coup d'envoi — cycle de 90 min
+  const elapsedMin = Math.floor((nowMs - kickoffMs) / 60_000);
+  const minuteJeu = (((elapsedMin % 90) + 90) % 90) + 1;
+
+  // Scores déterministes selon la minute (seed stable par match)
   const seed = match.id.charCodeAt(match.id.length - 1);
-  const butsDom = Math.floor(elapsedMin / (28 + (seed % 10)));
-  const butsExt = Math.floor(elapsedMin / (35 + (seed % 8)));
+  const butsDom = Math.floor(minuteJeu / (28 + (seed % 10)));
+  const butsExt = Math.floor(minuteJeu / (35 + (seed % 8)));
 
   return {
     ...match,
+    dateHeure: new Date(nowMs - minuteJeu * 60_000).toISOString(),
     minuteJeu,
     scoreDomicile: Math.min(butsDom, 5),
     scoreExterieur: Math.min(butsExt, 4),
