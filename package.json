@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sync": "node scripts/sync.mjs",
+    "sync:wc2026": "node scripts/sync-worldcup2026.mjs"
   },
   "dependencies": {
     "@types/pg": "^8.20.0",

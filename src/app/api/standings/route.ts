@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getStandings, getStandingsByGroup } from "@/lib/api/standing-service";
+import { getStandings, getStandingsByGroup, getStandingsDataSource } from "@/lib/api/standing-service";
 
 export const dynamic = "force-dynamic";
 
@@ -13,11 +13,11 @@ export async function GET(request: NextRequest) {
       if (!data) {
         return NextResponse.json({ error: "Groupe introuvable." }, { status: 404 });
       }
-      return NextResponse.json({ data: [data] });
+      return NextResponse.json({ data: [data], source: getStandingsDataSource() });
     }
 
     const data = await getStandings();
-    return NextResponse.json({ data });
+    return NextResponse.json({ data, source: getStandingsDataSource() });
   } catch (error) {
     console.error("[API /standings]", error);
     return NextResponse.json(

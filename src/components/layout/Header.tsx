@@ -24,7 +24,6 @@ export default function Header() {
         const json = await res.json();
         setLiveCount((json.data ?? []).length);
       } catch {
-        // silencieux
       }
     }
     fetchLiveCount();

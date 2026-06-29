@@ -27,9 +27,9 @@ function MatchesContent() {
       ) : (
         <>
           {matches.some((m) => m.statut === "en_cours") && (
-            <div className="flex items-center gap-2 text-xs text-[#00e676] bg-[#0d1f14] border border-[#00e676]/20 px-3 py-2 rounded-lg">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00e676] animate-pulse" />
-              Mise à jour automatique — matchs en cours
+            <div className="flex items-center gap-2 text-xs text-[#6b7a9e] bg-[#131929] border border-[#1e2840] px-3 py-2 rounded-lg">
+              Scores en direct disponibles sur la page{" "}
+              <a href="/live" className="text-[#00e676] hover:underline">Live</a>
             </div>
           )}
           <MatchList matches={matches} />

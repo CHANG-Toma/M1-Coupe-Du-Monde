@@ -95,14 +95,14 @@ INSERT INTO match_cdm (id_match, date_heure, statut, buts_domicile, buts_exterie
   (6,  '2026-06-22 19:00:00+00', 'termine', 1, 3,  1,  7, 1,  2,  3)
 ON CONFLICT DO NOTHING;
 
--- Groupe B (2 en cours, 2 terminés)
+-- Groupe B (terminés)
 INSERT INTO match_cdm (id_match, date_heure, statut, buts_domicile, buts_exterieur, id_phase, id_stade, id_groupe, id_equipe_domicile, id_equipe_exterieur) VALUES
   (7,  '2026-06-12 22:00:00+00', 'termine', 3, 0,  1,  1, 2,  5,  8),
   (8,  '2026-06-13 19:00:00+00', 'termine', 1, 1,  1, 13, 2,  7,  6),
   (9,  '2026-06-18 22:00:00+00', 'termine', 2, 0,  1,  1, 2,  5,  6),
   (10, '2026-06-18 19:00:00+00', 'termine', 2, 1,  1, 14, 2,  7,  8),
-  (11, NOW() - INTERVAL '67 minutes', 'en_cours', 1, 0, 1, 1, 2, 5, 7),
-  (12, NOW() - INTERVAL '67 minutes', 'en_cours', 0, 0, 1, 12, 2, 6, 8)
+  (11, '2026-06-23 19:00:00+00', 'termine', 1, 0, 1,  1, 2,  5,  7),
+  (12, '2026-06-23 19:00:00+00', 'termine', 0, 0, 1, 12, 2,  6,  8)
 ON CONFLICT DO NOTHING;
 
 -- Groupe C (à venir)

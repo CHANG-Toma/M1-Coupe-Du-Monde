@@ -10,13 +10,11 @@ interface UseMatchesResult {
   loading: boolean;
   error: string | null;
   refresh: () => void;
-  source: "api" | "mock" | null;
+  source: "api" | "db" | "mock" | null;
 }
 
 interface UseMatchesOptions {
-  /** Polling actif même sans match en cours */
   alwaysPoll?: boolean;
-  /** Filtre live uniquement (léger côté API) */
   liveOnly?: boolean;
 }
 
@@ -27,7 +25,7 @@ export function useMatches(
   const [matches, setMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [source, setSource] = useState<"api" | "mock" | null>(null);
+  const [source, setSource] = useState<"api" | "db" | "mock" | null>(null);
 
   const fetchMatches = useCallback(async () => {
     try {
@@ -53,11 +51,13 @@ export function useMatches(
     fetchMatches();
   }, [fetchMatches]);
 
-  const hasMatchEnCours = matches.some((m) => m.statut === "en_cours");
+  const pollEnabled = options.liveOnly
+    ? options.alwaysPoll !== false
+    : Boolean(options.alwaysPoll);
 
   usePolling(fetchMatches, {
     interval: POLL_INTERVAL_MS,
-    enabled: options.alwaysPoll || hasMatchEnCours,
+    enabled: pollEnabled,
     visibilityAware: true,
   });
 

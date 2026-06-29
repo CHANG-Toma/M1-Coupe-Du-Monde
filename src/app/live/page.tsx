@@ -123,18 +123,18 @@ function RefreshBar({ countdown }: { countdown: number }) {
 
 export default function LivePage() {
   const [matches, setMatches] = useState<Match[]>([]);
+  const [upcoming, setUpcoming] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
   const [countdown, setCountdown] = useState(POLL_INTERVAL_MS / 1000);
   const [freshIds, setFreshIds] = useState<Set<string>>(new Set());
 
-  const fetchAll = useCallback(async () => {
+  const fetchLive = useCallback(async () => {
     try {
-      const res = await fetch("/api/matches");
+      const res = await fetch("/api/matches?live=true");
       const json = await res.json();
       const next: Match[] = json.data ?? [];
 
-      // Détecte les scores changés pour l'animation pop
       setMatches((prev) => {
         const changed = new Set<string>();
         next.forEach((m) => {
@@ -154,13 +154,25 @@ export default function LivePage() {
       setLastUpdate(new Date());
       setCountdown(POLL_INTERVAL_MS / 1000);
     } catch {
-      // silencieux
     } finally {
       setLoading(false);
     }
   }, []);
 
-  useEffect(() => { fetchAll(); }, [fetchAll]);
+  const fetchUpcoming = useCallback(async () => {
+    try {
+      const res = await fetch("/api/matches");
+      const json = await res.json();
+      const all: Match[] = json.data ?? [];
+      setUpcoming(all.filter((m) => m.statut === "a_venir").slice(0, 5));
+    } catch {
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchLive();
+    fetchUpcoming();
+  }, [fetchLive, fetchUpcoming]);
 
   // Countdown visuel
   useEffect(() => {
@@ -168,10 +180,10 @@ export default function LivePage() {
     return () => clearInterval(t);
   }, [lastUpdate]);
 
-  usePolling(fetchAll, { interval: POLL_INTERVAL_MS, enabled: true, visibilityAware: true });
+  usePolling(fetchLive, { interval: POLL_INTERVAL_MS, enabled: true, visibilityAware: true });
 
-  const enCours = matches.filter((m) => m.statut === "en_cours");
-  const aVenir  = matches.filter((m) => m.statut === "a_venir").slice(0, 5);
+  const enCours = matches;
+  const aVenir = upcoming;
 
   return (
     <div className="space-y-8 animate-fade-in">

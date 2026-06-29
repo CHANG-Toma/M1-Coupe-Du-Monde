@@ -86,7 +86,6 @@ export interface GroupeClassement {
 export interface FiltresMatchs {
   phase?: TypePhase;
   equipeId?: string;
-  /** Uniquement les matchs en cours (optimisé pour le live) */
   live?: boolean;
 }
 

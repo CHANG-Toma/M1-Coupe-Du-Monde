@@ -1,8 +1,7 @@
 {
   "/api/matches/route": "app/api/matches/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/live/page": "app/live/page.js",
-  "/matches/[id]/page": "app/matches/[id]/page.js",
   "/page": "app/page.js",
-  "/matches/page": "app/matches/page.js"
+  "/matches/page": "app/matches/page.js",
+  "/matches/[id]/page": "app/matches/[id]/page.js",
+  "/standings/page": "app/standings/page.js"
 }

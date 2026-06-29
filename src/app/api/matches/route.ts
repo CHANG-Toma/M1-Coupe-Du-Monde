@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getMatches, isUsingMockData } from "@/lib/api/match-service";
+import { getMatches, getDataSource } from "@/lib/api/match-service";
 import type { TypePhase } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -11,16 +11,18 @@ export async function GET(request: NextRequest) {
     const equipeId = searchParams.get("equipeId") ?? undefined;
     const live = searchParams.get("live") === "true";
 
-    const matches = await getMatches({
+    const filtres = {
       phase: phase ?? undefined,
       equipeId,
       live: live || undefined,
-    });
+    };
+
+    const matches = await getMatches(filtres);
 
     return NextResponse.json({
       data: matches,
       total: matches.length,
-      source: isUsingMockData() ? "mock" : "api",
+      source: getDataSource(filtres),
     });
   } catch (error) {
     console.error("[API /matches]", error);

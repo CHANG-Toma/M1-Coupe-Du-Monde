@@ -95,6 +95,10 @@ export async function getMatchesFromDb(filtres?: FiltresMatchs): Promise<Match[]
     conditions.push(`(m.id_equipe_domicile = $${params.length} OR m.id_equipe_exterieur = $${params.length})`);
   }
 
+  if (filtres?.live) {
+    conditions.push(`m.statut = 'en_cours'`);
+  }
+
   const where = conditions.length ? `WHERE ${conditions.join(" AND ")}` : "";
   const sql = `${SELECT_MATCH} ${where} ORDER BY m.date_heure ASC`;
 

@@ -97,11 +97,12 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 }
 
 export default function HomeDashboard() {
-  const { matches, loading, source } = useMatches(undefined, { alwaysPoll: true });
+  const { matches: liveMatches } = useMatches(undefined, { liveOnly: true, alwaysPoll: true });
+  const { matches: dbMatches, loading } = useMatches(undefined);
 
-  const enCours = matches.filter((m) => m.statut === "en_cours");
-  const aVenir = matches.filter((m) => m.statut === "a_venir").slice(0, 4);
-  const termines = matches.filter((m) => m.statut === "termine").slice(-3).reverse();
+  const enCours = liveMatches;
+  const aVenir = dbMatches.filter((m) => m.statut === "a_venir").slice(0, 4);
+  const termines = dbMatches.filter((m) => m.statut === "termine").slice(-3).reverse();
 
   if (loading) {
     return <LoadingSpinner message="Chargement des matchs..." />;
@@ -117,12 +118,6 @@ export default function HomeDashboard() {
           <h1 className="text-2xl font-bold text-white tracking-tight">World Cup Tracker</h1>
           <p className="text-[#6b7a9e] text-sm">
             Suivez la compétition en temps réel
-            {source === "api" && (
-              <span className="ml-2 text-[#00e676]">· API live</span>
-            )}
-            {source === "mock" && (
-              <span className="ml-2 text-amber-500/80">· Données de démo</span>
-            )}
           </p>
         </div>
 
