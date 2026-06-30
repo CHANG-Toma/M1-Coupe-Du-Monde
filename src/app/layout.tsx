@@ -22,7 +22,9 @@ export default function RootLayout({
     <html lang="fr" className="dark" suppressHydrationWarning>
       <body className={`${geist.variable} antialiased min-h-screen bg-[#0b0f1a] text-white`}>
         <Header />
-        <main className="max-w-2xl mx-auto px-4 pt-6 pb-24 sm:pb-8">{children}</main>
+        <main className="max-w-2xl mx-auto px-4 pt-4 sm:pt-6 pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] sm:pb-8">
+          {children}
+        </main>
         <BottomNav />
       </body>
     </html>
