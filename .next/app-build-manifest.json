@@ -6,35 +6,25 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/page": [
+    "/bracket/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/bracket/layout.js"
     ],
-    "/standings/page": [
+    "/bracket/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/standings/page.js"
+      "static/chunks/app/bracket/page.js"
     ],
     "/api/matches/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/api/matches/route.js"
     ],
-    "/matches/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/matches/page.js"
-    ],
-    "/matches/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/matches/[id]/page.js"
-    ],
-    "/api/matches/[id]/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/matches/[id]/route.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

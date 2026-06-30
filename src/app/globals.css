@@ -22,7 +22,16 @@ body {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #1e2840; border-radius: 2px; }
 
-/* ─── Animations ─────────────────────────────────────────────────────────── */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+@media (min-width: 640px) {
+  .bracket-round-slot {
+    height: var(--slot-h-sm) !important;
+    min-height: var(--slot-h-sm) !important;
+  }
+}
+
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
