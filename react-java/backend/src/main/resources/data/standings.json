@@ -1,0 +1,530 @@
+[
+  {
+    "groupe": {
+      "id": "A",
+      "lettre": "A"
+    },
+    "classement": [
+      {
+        "equipe": {
+          "id": "1",
+          "nom": "Mexique",
+          "codePays": "mx",
+          "logoUrl": "https://flagcdn.com/mx.svg"
+        },
+        "groupe": {
+          "id": "A",
+          "lettre": "A"
+        },
+        "points": 7,
+        "matchsJoues": 3,
+        "victoires": 2,
+        "nuls": 1,
+        "defaites": 0,
+        "butsPour": 7,
+        "butsContre": 3,
+        "differenceButs": 4
+      },
+      {
+        "equipe": {
+          "id": "4",
+          "nom": "Maroc",
+          "codePays": "ma",
+          "logoUrl": "https://flagcdn.com/ma.svg"
+        },
+        "groupe": {
+          "id": "A",
+          "lettre": "A"
+        },
+        "points": 5,
+        "matchsJoues": 3,
+        "victoires": 1,
+        "nuls": 2,
+        "defaites": 0,
+        "butsPour": 4,
+        "butsContre": 3,
+        "differenceButs": 1
+      },
+      {
+        "equipe": {
+          "id": "3",
+          "nom": "Suisse",
+          "codePays": "ch",
+          "logoUrl": "https://flagcdn.com/ch.svg"
+        },
+        "groupe": {
+          "id": "A",
+          "lettre": "A"
+        },
+        "points": 4,
+        "matchsJoues": 3,
+        "victoires": 1,
+        "nuls": 1,
+        "defaites": 1,
+        "butsPour": 4,
+        "butsContre": 4,
+        "differenceButs": 0
+      },
+      {
+        "equipe": {
+          "id": "2",
+          "nom": "Équateur",
+          "codePays": "ec",
+          "logoUrl": "https://flagcdn.com/ec.svg"
+        },
+        "groupe": {
+          "id": "A",
+          "lettre": "A"
+        },
+        "points": 1,
+        "matchsJoues": 3,
+        "victoires": 0,
+        "nuls": 1,
+        "defaites": 2,
+        "butsPour": 2,
+        "butsContre": 7,
+        "differenceButs": -5
+      }
+    ]
+  },
+  {
+    "groupe": {
+      "id": "B",
+      "lettre": "B"
+    },
+    "classement": [
+      {
+        "equipe": {
+          "id": "5",
+          "nom": "Argentine",
+          "codePays": "ar",
+          "logoUrl": "https://flagcdn.com/ar.svg"
+        },
+        "groupe": {
+          "id": "B",
+          "lettre": "B"
+        },
+        "points": 7,
+        "matchsJoues": 3,
+        "victoires": 2,
+        "nuls": 1,
+        "defaites": 0,
+        "butsPour": 6,
+        "butsContre": 1,
+        "differenceButs": 5
+      },
+      {
+        "equipe": {
+          "id": "7",
+          "nom": "Canada",
+          "codePays": "ca",
+          "logoUrl": "https://flagcdn.com/ca.svg"
+        },
+        "groupe": {
+          "id": "B",
+          "lettre": "B"
+        },
+        "points": 5,
+        "matchsJoues": 3,
+        "victoires": 1,
+        "nuls": 2,
+        "defaites": 0,
+        "butsPour": 4,
+        "butsContre": 3,
+        "differenceButs": 1
+      },
+      {
+        "equipe": {
+          "id": "6",
+          "nom": "Islande",
+          "codePays": "is",
+          "logoUrl": "https://flagcdn.com/is.svg"
+        },
+        "groupe": {
+          "id": "B",
+          "lettre": "B"
+        },
+        "points": 2,
+        "matchsJoues": 3,
+        "victoires": 0,
+        "nuls": 2,
+        "defaites": 1,
+        "butsPour": 1,
+        "butsContre": 3,
+        "differenceButs": -2
+      },
+      {
+        "equipe": {
+          "id": "8",
+          "nom": "Pérou",
+          "codePays": "pe",
+          "logoUrl": "https://flagcdn.com/pe.svg"
+        },
+        "groupe": {
+          "id": "B",
+          "lettre": "B"
+        },
+        "points": 0,
+        "matchsJoues": 3,
+        "victoires": 0,
+        "nuls": 0,
+        "defaites": 3,
+        "butsPour": 1,
+        "butsContre": 5,
+        "differenceButs": -4
+      }
+    ]
+  },
+  {
+    "groupe": {
+      "id": "C",
+      "lettre": "C"
+    },
+    "classement": [
+      {
+        "equipe": {
+          "id": "11",
+          "nom": "Uruguay",
+          "codePays": "uy",
+          "logoUrl": "https://flagcdn.com/uy.svg"
+        },
+        "groupe": {
+          "id": "C",
+          "lettre": "C"
+        },
+        "points": 6,
+        "matchsJoues": 2,
+        "victoires": 2,
+        "nuls": 0,
+        "defaites": 0,
+        "butsPour": 4,
+        "butsContre": 1,
+        "differenceButs": 3
+      },
+      {
+        "equipe": {
+          "id": "10",
+          "nom": "Jamaïque",
+          "codePays": "jm",
+          "logoUrl": "https://flagcdn.com/jm.svg"
+        },
+        "groupe": {
+          "id": "C",
+          "lettre": "C"
+        },
+        "points": 4,
+        "matchsJoues": 2,
+        "victoires": 1,
+        "nuls": 1,
+        "defaites": 0,
+        "butsPour": 3,
+        "butsContre": 3,
+        "differenceButs": 0
+      },
+      {
+        "equipe": {
+          "id": "9",
+          "nom": "États-Unis",
+          "codePays": "us",
+          "logoUrl": "https://flagcdn.com/us.svg"
+        },
+        "groupe": {
+          "id": "C",
+          "lettre": "C"
+        },
+        "points": 3,
+        "matchsJoues": 2,
+        "victoires": 1,
+        "nuls": 0,
+        "defaites": 1,
+        "butsPour": 4,
+        "butsContre": 3,
+        "differenceButs": 1
+      },
+      {
+        "equipe": {
+          "id": "12",
+          "nom": "Bolivie",
+          "codePays": "bo",
+          "logoUrl": "https://flagcdn.com/bo.svg"
+        },
+        "groupe": {
+          "id": "C",
+          "lettre": "C"
+        },
+        "points": 0,
+        "matchsJoues": 2,
+        "victoires": 0,
+        "nuls": 0,
+        "defaites": 2,
+        "butsPour": 0,
+        "butsContre": 4,
+        "differenceButs": -4
+      }
+    ]
+  },
+  {
+    "groupe": {
+      "id": "D",
+      "lettre": "D"
+    },
+    "classement": [
+      {
+        "equipe": {
+          "id": "13",
+          "nom": "France",
+          "codePays": "fr",
+          "logoUrl": "https://flagcdn.com/fr.svg"
+        },
+        "groupe": {
+          "id": "D",
+          "lettre": "D"
+        },
+        "points": 6,
+        "matchsJoues": 2,
+        "victoires": 2,
+        "nuls": 0,
+        "defaites": 0,
+        "butsPour": 5,
+        "butsContre": 1,
+        "differenceButs": 4
+      },
+      {
+        "equipe": {
+          "id": "14",
+          "nom": "Belgique",
+          "codePays": "be",
+          "logoUrl": "https://flagcdn.com/be.svg"
+        },
+        "groupe": {
+          "id": "D",
+          "lettre": "D"
+        },
+        "points": 4,
+        "matchsJoues": 2,
+        "victoires": 1,
+        "nuls": 1,
+        "defaites": 0,
+        "butsPour": 4,
+        "butsContre": 1,
+        "differenceButs": 3
+      },
+      {
+        "equipe": {
+          "id": "15",
+          "nom": "Paraguay",
+          "codePays": "py",
+          "logoUrl": "https://flagcdn.com/py.svg"
+        },
+        "groupe": {
+          "id": "D",
+          "lettre": "D"
+        },
+        "points": 1,
+        "matchsJoues": 2,
+        "victoires": 0,
+        "nuls": 1,
+        "defaites": 1,
+        "butsPour": 2,
+        "butsContre": 4,
+        "differenceButs": -2
+      },
+      {
+        "equipe": {
+          "id": "16",
+          "nom": "Arabie Saoudite",
+          "codePays": "sa",
+          "logoUrl": "https://flagcdn.com/sa.svg"
+        },
+        "groupe": {
+          "id": "D",
+          "lettre": "D"
+        },
+        "points": 0,
+        "matchsJoues": 2,
+        "victoires": 0,
+        "nuls": 0,
+        "defaites": 2,
+        "butsPour": 0,
+        "butsContre": 5,
+        "differenceButs": -5
+      }
+    ]
+  },
+  {
+    "groupe": {
+      "id": "E",
+      "lettre": "E"
+    },
+    "classement": [
+      {
+        "equipe": {
+          "id": "17",
+          "nom": "Espagne",
+          "codePays": "es",
+          "logoUrl": "https://flagcdn.com/es.svg"
+        },
+        "groupe": {
+          "id": "E",
+          "lettre": "E"
+        },
+        "points": 5,
+        "matchsJoues": 2,
+        "victoires": 1,
+        "nuls": 2,
+        "defaites": 0,
+        "butsPour": 4,
+        "butsContre": 3,
+        "differenceButs": 1
+      },
+      {
+        "equipe": {
+          "id": "18",
+          "nom": "Portugal",
+          "codePays": "pt",
+          "logoUrl": "https://flagcdn.com/pt.svg"
+        },
+        "groupe": {
+          "id": "E",
+          "lettre": "E"
+        },
+        "points": 4,
+        "matchsJoues": 2,
+        "victoires": 1,
+        "nuls": 1,
+        "defaites": 0,
+        "butsPour": 3,
+        "butsContre": 2,
+        "differenceButs": 1
+      },
+      {
+        "equipe": {
+          "id": "19",
+          "nom": "Côte d'Ivoire",
+          "codePays": "ci",
+          "logoUrl": "https://flagcdn.com/ci.svg"
+        },
+        "groupe": {
+          "id": "E",
+          "lettre": "E"
+        },
+        "points": 1,
+        "matchsJoues": 2,
+        "victoires": 0,
+        "nuls": 1,
+        "defaites": 1,
+        "butsPour": 2,
+        "butsContre": 3,
+        "differenceButs": -1
+      },
+      {
+        "equipe": {
+          "id": "20",
+          "nom": "Nigeria",
+          "codePays": "ng",
+          "logoUrl": "https://flagcdn.com/ng.svg"
+        },
+        "groupe": {
+          "id": "E",
+          "lettre": "E"
+        },
+        "points": 1,
+        "matchsJoues": 2,
+        "victoires": 0,
+        "nuls": 1,
+        "defaites": 1,
+        "butsPour": 1,
+        "butsContre": 2,
+        "differenceButs": -1
+      }
+    ]
+  },
+  {
+    "groupe": {
+      "id": "F",
+      "lettre": "F"
+    },
+    "classement": [
+      {
+        "equipe": {
+          "id": "22",
+          "nom": "Angleterre",
+          "codePays": "gb-eng",
+          "logoUrl": "https://flagcdn.com/gb-eng.svg"
+        },
+        "groupe": {
+          "id": "F",
+          "lettre": "F"
+        },
+        "points": 6,
+        "matchsJoues": 2,
+        "victoires": 2,
+        "nuls": 0,
+        "defaites": 0,
+        "butsPour": 3,
+        "butsContre": 1,
+        "differenceButs": 2
+      },
+      {
+        "equipe": {
+          "id": "23",
+          "nom": "Serbie",
+          "codePays": "rs",
+          "logoUrl": "https://flagcdn.com/rs.svg"
+        },
+        "groupe": {
+          "id": "F",
+          "lettre": "F"
+        },
+        "points": 3,
+        "matchsJoues": 2,
+        "victoires": 1,
+        "nuls": 0,
+        "defaites": 1,
+        "butsPour": 3,
+        "butsContre": 2,
+        "differenceButs": 1
+      },
+      {
+        "equipe": {
+          "id": "21",
+          "nom": "Allemagne",
+          "codePays": "de",
+          "logoUrl": "https://flagcdn.com/de.svg"
+        },
+        "groupe": {
+          "id": "F",
+          "lettre": "F"
+        },
+        "points": 3,
+        "matchsJoues": 2,
+        "victoires": 1,
+        "nuls": 0,
+        "defaites": 1,
+        "butsPour": 5,
+        "butsContre": 3,
+        "differenceButs": 2
+      },
+      {
+        "equipe": {
+          "id": "24",
+          "nom": "Cameroun",
+          "codePays": "cm",
+          "logoUrl": "https://flagcdn.com/cm.svg"
+        },
+        "groupe": {
+          "id": "F",
+          "lettre": "F"
+        },
+        "points": 0,
+        "matchsJoues": 2,
+        "victoires": 0,
+        "nuls": 0,
+        "defaites": 2,
+        "butsPour": 2,
+        "butsContre": 7,
+        "differenceButs": -5
+      }
+    ]
+  }
+]

@@ -1,0 +1,6 @@
+# Backend Java
+backend/target/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/

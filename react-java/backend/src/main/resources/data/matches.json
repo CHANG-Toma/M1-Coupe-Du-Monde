@@ -1,0 +1,1346 @@
+[
+  {
+    "id": "m001",
+    "dateHeure": "2026-06-11T21:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 2,
+    "scoreExterieur": 1,
+    "equipeDomicile": {
+      "id": "1",
+      "nom": "Mexique",
+      "codePays": "mx",
+      "logoUrl": "https://flagcdn.com/mx.svg"
+    },
+    "equipeExterieur": {
+      "id": "3",
+      "nom": "Suisse",
+      "codePays": "ch",
+      "logoUrl": "https://flagcdn.com/ch.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s15",
+      "nom": "Estadio Azteca",
+      "ville": "Mexico"
+    },
+    "groupe": {
+      "id": "A",
+      "lettre": "A"
+    }
+  },
+  {
+    "id": "m002",
+    "dateHeure": "2026-06-12T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 1,
+    "scoreExterieur": 1,
+    "equipeDomicile": {
+      "id": "2",
+      "nom": "Équateur",
+      "codePays": "ec",
+      "logoUrl": "https://flagcdn.com/ec.svg"
+    },
+    "equipeExterieur": {
+      "id": "4",
+      "nom": "Maroc",
+      "codePays": "ma",
+      "logoUrl": "https://flagcdn.com/ma.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s9",
+      "nom": "NRG Stadium",
+      "ville": "Houston"
+    },
+    "groupe": {
+      "id": "A",
+      "lettre": "A"
+    }
+  },
+  {
+    "id": "m003",
+    "dateHeure": "2026-06-17T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 0,
+    "scoreExterieur": 2,
+    "equipeDomicile": {
+      "id": "3",
+      "nom": "Suisse",
+      "codePays": "ch",
+      "logoUrl": "https://flagcdn.com/ch.svg"
+    },
+    "equipeExterieur": {
+      "id": "4",
+      "nom": "Maroc",
+      "codePays": "ma",
+      "logoUrl": "https://flagcdn.com/ma.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s10",
+      "nom": "Hard Rock Stadium",
+      "ville": "Miami"
+    },
+    "groupe": {
+      "id": "A",
+      "lettre": "A"
+    }
+  },
+  {
+    "id": "m004",
+    "dateHeure": "2026-06-17T21:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 3,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "1",
+      "nom": "Mexique",
+      "codePays": "mx",
+      "logoUrl": "https://flagcdn.com/mx.svg"
+    },
+    "equipeExterieur": {
+      "id": "2",
+      "nom": "Équateur",
+      "codePays": "ec",
+      "logoUrl": "https://flagcdn.com/ec.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s15",
+      "nom": "Estadio Azteca",
+      "ville": "Mexico"
+    },
+    "groupe": {
+      "id": "A",
+      "lettre": "A"
+    }
+  },
+  {
+    "id": "m005",
+    "dateHeure": "2026-06-22T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 2,
+    "scoreExterieur": 2,
+    "equipeDomicile": {
+      "id": "1",
+      "nom": "Mexique",
+      "codePays": "mx",
+      "logoUrl": "https://flagcdn.com/mx.svg"
+    },
+    "equipeExterieur": {
+      "id": "4",
+      "nom": "Maroc",
+      "codePays": "ma",
+      "logoUrl": "https://flagcdn.com/ma.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s3",
+      "nom": "AT&T Stadium",
+      "ville": "Dallas"
+    },
+    "groupe": {
+      "id": "A",
+      "lettre": "A"
+    }
+  },
+  {
+    "id": "m006",
+    "dateHeure": "2026-06-22T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 1,
+    "scoreExterieur": 3,
+    "equipeDomicile": {
+      "id": "2",
+      "nom": "Équateur",
+      "codePays": "ec",
+      "logoUrl": "https://flagcdn.com/ec.svg"
+    },
+    "equipeExterieur": {
+      "id": "3",
+      "nom": "Suisse",
+      "codePays": "ch",
+      "logoUrl": "https://flagcdn.com/ch.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s7",
+      "nom": "Lumen Field",
+      "ville": "Seattle"
+    },
+    "groupe": {
+      "id": "A",
+      "lettre": "A"
+    }
+  },
+  {
+    "id": "m007",
+    "dateHeure": "2026-06-12T21:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 3,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "5",
+      "nom": "Argentine",
+      "codePays": "ar",
+      "logoUrl": "https://flagcdn.com/ar.svg"
+    },
+    "equipeExterieur": {
+      "id": "8",
+      "nom": "Pérou",
+      "codePays": "pe",
+      "logoUrl": "https://flagcdn.com/pe.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s1",
+      "nom": "MetLife Stadium",
+      "ville": "New York / New Jersey"
+    },
+    "groupe": {
+      "id": "B",
+      "lettre": "B"
+    }
+  },
+  {
+    "id": "m008",
+    "dateHeure": "2026-06-13T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 1,
+    "scoreExterieur": 1,
+    "equipeDomicile": {
+      "id": "7",
+      "nom": "Canada",
+      "codePays": "ca",
+      "logoUrl": "https://flagcdn.com/ca.svg"
+    },
+    "equipeExterieur": {
+      "id": "6",
+      "nom": "Islande",
+      "codePays": "is",
+      "logoUrl": "https://flagcdn.com/is.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s13",
+      "nom": "BMO Field",
+      "ville": "Toronto"
+    },
+    "groupe": {
+      "id": "B",
+      "lettre": "B"
+    }
+  },
+  {
+    "id": "m009",
+    "dateHeure": "2026-06-18T21:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 2,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "5",
+      "nom": "Argentine",
+      "codePays": "ar",
+      "logoUrl": "https://flagcdn.com/ar.svg"
+    },
+    "equipeExterieur": {
+      "id": "6",
+      "nom": "Islande",
+      "codePays": "is",
+      "logoUrl": "https://flagcdn.com/is.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s1",
+      "nom": "MetLife Stadium",
+      "ville": "New York / New Jersey"
+    },
+    "groupe": {
+      "id": "B",
+      "lettre": "B"
+    }
+  },
+  {
+    "id": "m010",
+    "dateHeure": "2026-06-18T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 2,
+    "scoreExterieur": 1,
+    "equipeDomicile": {
+      "id": "7",
+      "nom": "Canada",
+      "codePays": "ca",
+      "logoUrl": "https://flagcdn.com/ca.svg"
+    },
+    "equipeExterieur": {
+      "id": "8",
+      "nom": "Pérou",
+      "codePays": "pe",
+      "logoUrl": "https://flagcdn.com/pe.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s14",
+      "nom": "BC Place",
+      "ville": "Vancouver"
+    },
+    "groupe": {
+      "id": "B",
+      "lettre": "B"
+    }
+  },
+  {
+    "id": "m011",
+    "dateHeure": "2026-07-01T10:36:03.151Z",
+    "statut": "en_cours",
+    "scoreDomicile": 1,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "5",
+      "nom": "Argentine",
+      "codePays": "ar",
+      "logoUrl": "https://flagcdn.com/ar.svg"
+    },
+    "equipeExterieur": {
+      "id": "7",
+      "nom": "Canada",
+      "codePays": "ca",
+      "logoUrl": "https://flagcdn.com/ca.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s1",
+      "nom": "MetLife Stadium",
+      "ville": "New York / New Jersey"
+    },
+    "groupe": {
+      "id": "B",
+      "lettre": "B"
+    }
+  },
+  {
+    "id": "m012",
+    "dateHeure": "2026-07-01T10:36:03.151Z",
+    "statut": "en_cours",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "6",
+      "nom": "Islande",
+      "codePays": "is",
+      "logoUrl": "https://flagcdn.com/is.svg"
+    },
+    "equipeExterieur": {
+      "id": "8",
+      "nom": "Pérou",
+      "codePays": "pe",
+      "logoUrl": "https://flagcdn.com/pe.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s12",
+      "nom": "Gillette Stadium",
+      "ville": "Boston"
+    },
+    "groupe": {
+      "id": "B",
+      "lettre": "B"
+    }
+  },
+  {
+    "id": "m013",
+    "dateHeure": "2026-06-13T21:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 3,
+    "scoreExterieur": 1,
+    "equipeDomicile": {
+      "id": "9",
+      "nom": "États-Unis",
+      "codePays": "us",
+      "logoUrl": "https://flagcdn.com/us.svg"
+    },
+    "equipeExterieur": {
+      "id": "10",
+      "nom": "Jamaïque",
+      "codePays": "jm",
+      "logoUrl": "https://flagcdn.com/jm.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s2",
+      "nom": "SoFi Stadium",
+      "ville": "Los Angeles"
+    },
+    "groupe": {
+      "id": "C",
+      "lettre": "C"
+    }
+  },
+  {
+    "id": "m014",
+    "dateHeure": "2026-06-14T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 2,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "11",
+      "nom": "Uruguay",
+      "codePays": "uy",
+      "logoUrl": "https://flagcdn.com/uy.svg"
+    },
+    "equipeExterieur": {
+      "id": "12",
+      "nom": "Bolivie",
+      "codePays": "bo",
+      "logoUrl": "https://flagcdn.com/bo.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s4",
+      "nom": "Arrowhead Stadium",
+      "ville": "Kansas City"
+    },
+    "groupe": {
+      "id": "C",
+      "lettre": "C"
+    }
+  },
+  {
+    "id": "m015",
+    "dateHeure": "2026-06-19T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 1,
+    "scoreExterieur": 2,
+    "equipeDomicile": {
+      "id": "9",
+      "nom": "États-Unis",
+      "codePays": "us",
+      "logoUrl": "https://flagcdn.com/us.svg"
+    },
+    "equipeExterieur": {
+      "id": "11",
+      "nom": "Uruguay",
+      "codePays": "uy",
+      "logoUrl": "https://flagcdn.com/uy.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s6",
+      "nom": "Levi's Stadium",
+      "ville": "San Francisco"
+    },
+    "groupe": {
+      "id": "C",
+      "lettre": "C"
+    }
+  },
+  {
+    "id": "m016",
+    "dateHeure": "2026-06-19T21:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 2,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "10",
+      "nom": "Jamaïque",
+      "codePays": "jm",
+      "logoUrl": "https://flagcdn.com/jm.svg"
+    },
+    "equipeExterieur": {
+      "id": "12",
+      "nom": "Bolivie",
+      "codePays": "bo",
+      "logoUrl": "https://flagcdn.com/bo.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s10",
+      "nom": "Hard Rock Stadium",
+      "ville": "Miami"
+    },
+    "groupe": {
+      "id": "C",
+      "lettre": "C"
+    }
+  },
+  {
+    "id": "m017",
+    "dateHeure": "2026-06-24T21:00:00-05:00",
+    "statut": "a_venir",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "9",
+      "nom": "États-Unis",
+      "codePays": "us",
+      "logoUrl": "https://flagcdn.com/us.svg"
+    },
+    "equipeExterieur": {
+      "id": "12",
+      "nom": "Bolivie",
+      "codePays": "bo",
+      "logoUrl": "https://flagcdn.com/bo.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s2",
+      "nom": "SoFi Stadium",
+      "ville": "Los Angeles"
+    },
+    "groupe": {
+      "id": "C",
+      "lettre": "C"
+    }
+  },
+  {
+    "id": "m018",
+    "dateHeure": "2026-06-24T21:00:00-05:00",
+    "statut": "a_venir",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "10",
+      "nom": "Jamaïque",
+      "codePays": "jm",
+      "logoUrl": "https://flagcdn.com/jm.svg"
+    },
+    "equipeExterieur": {
+      "id": "11",
+      "nom": "Uruguay",
+      "codePays": "uy",
+      "logoUrl": "https://flagcdn.com/uy.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s3",
+      "nom": "AT&T Stadium",
+      "ville": "Dallas"
+    },
+    "groupe": {
+      "id": "C",
+      "lettre": "C"
+    }
+  },
+  {
+    "id": "m019",
+    "dateHeure": "2026-06-14T21:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 2,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "13",
+      "nom": "France",
+      "codePays": "fr",
+      "logoUrl": "https://flagcdn.com/fr.svg"
+    },
+    "equipeExterieur": {
+      "id": "16",
+      "nom": "Arabie Saoudite",
+      "codePays": "sa",
+      "logoUrl": "https://flagcdn.com/sa.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s1",
+      "nom": "MetLife Stadium",
+      "ville": "New York / New Jersey"
+    },
+    "groupe": {
+      "id": "D",
+      "lettre": "D"
+    }
+  },
+  {
+    "id": "m020",
+    "dateHeure": "2026-06-14T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 1,
+    "scoreExterieur": 1,
+    "equipeDomicile": {
+      "id": "14",
+      "nom": "Belgique",
+      "codePays": "be",
+      "logoUrl": "https://flagcdn.com/be.svg"
+    },
+    "equipeExterieur": {
+      "id": "15",
+      "nom": "Paraguay",
+      "codePays": "py",
+      "logoUrl": "https://flagcdn.com/py.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s11",
+      "nom": "Lincoln Financial Field",
+      "ville": "Philadelphie"
+    },
+    "groupe": {
+      "id": "D",
+      "lettre": "D"
+    }
+  },
+  {
+    "id": "m021",
+    "dateHeure": "2026-06-19T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 3,
+    "scoreExterieur": 1,
+    "equipeDomicile": {
+      "id": "13",
+      "nom": "France",
+      "codePays": "fr",
+      "logoUrl": "https://flagcdn.com/fr.svg"
+    },
+    "equipeExterieur": {
+      "id": "15",
+      "nom": "Paraguay",
+      "codePays": "py",
+      "logoUrl": "https://flagcdn.com/py.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s9",
+      "nom": "NRG Stadium",
+      "ville": "Houston"
+    },
+    "groupe": {
+      "id": "D",
+      "lettre": "D"
+    }
+  },
+  {
+    "id": "m022",
+    "dateHeure": "2026-06-19T21:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 3,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "14",
+      "nom": "Belgique",
+      "codePays": "be",
+      "logoUrl": "https://flagcdn.com/be.svg"
+    },
+    "equipeExterieur": {
+      "id": "16",
+      "nom": "Arabie Saoudite",
+      "codePays": "sa",
+      "logoUrl": "https://flagcdn.com/sa.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s10",
+      "nom": "Hard Rock Stadium",
+      "ville": "Miami"
+    },
+    "groupe": {
+      "id": "D",
+      "lettre": "D"
+    }
+  },
+  {
+    "id": "m023",
+    "dateHeure": "2026-06-24T18:00:00-05:00",
+    "statut": "a_venir",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "13",
+      "nom": "France",
+      "codePays": "fr",
+      "logoUrl": "https://flagcdn.com/fr.svg"
+    },
+    "equipeExterieur": {
+      "id": "14",
+      "nom": "Belgique",
+      "codePays": "be",
+      "logoUrl": "https://flagcdn.com/be.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s1",
+      "nom": "MetLife Stadium",
+      "ville": "New York / New Jersey"
+    },
+    "groupe": {
+      "id": "D",
+      "lettre": "D"
+    }
+  },
+  {
+    "id": "m024",
+    "dateHeure": "2026-06-24T18:00:00-05:00",
+    "statut": "a_venir",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "15",
+      "nom": "Paraguay",
+      "codePays": "py",
+      "logoUrl": "https://flagcdn.com/py.svg"
+    },
+    "equipeExterieur": {
+      "id": "16",
+      "nom": "Arabie Saoudite",
+      "codePays": "sa",
+      "logoUrl": "https://flagcdn.com/sa.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s8",
+      "nom": "Empower Field",
+      "ville": "Denver"
+    },
+    "groupe": {
+      "id": "D",
+      "lettre": "D"
+    }
+  },
+  {
+    "id": "m025",
+    "dateHeure": "2026-06-15T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 2,
+    "scoreExterieur": 1,
+    "equipeDomicile": {
+      "id": "17",
+      "nom": "Espagne",
+      "codePays": "es",
+      "logoUrl": "https://flagcdn.com/es.svg"
+    },
+    "equipeExterieur": {
+      "id": "19",
+      "nom": "Côte d'Ivoire",
+      "codePays": "ci",
+      "logoUrl": "https://flagcdn.com/ci.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s2",
+      "nom": "SoFi Stadium",
+      "ville": "Los Angeles"
+    },
+    "groupe": {
+      "id": "E",
+      "lettre": "E"
+    }
+  },
+  {
+    "id": "m026",
+    "dateHeure": "2026-06-15T21:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 1,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "18",
+      "nom": "Portugal",
+      "codePays": "pt",
+      "logoUrl": "https://flagcdn.com/pt.svg"
+    },
+    "equipeExterieur": {
+      "id": "20",
+      "nom": "Nigeria",
+      "codePays": "ng",
+      "logoUrl": "https://flagcdn.com/ng.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s6",
+      "nom": "Levi's Stadium",
+      "ville": "San Francisco"
+    },
+    "groupe": {
+      "id": "E",
+      "lettre": "E"
+    }
+  },
+  {
+    "id": "m027",
+    "dateHeure": "2026-06-20T21:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 2,
+    "scoreExterieur": 2,
+    "equipeDomicile": {
+      "id": "17",
+      "nom": "Espagne",
+      "codePays": "es",
+      "logoUrl": "https://flagcdn.com/es.svg"
+    },
+    "equipeExterieur": {
+      "id": "18",
+      "nom": "Portugal",
+      "codePays": "pt",
+      "logoUrl": "https://flagcdn.com/pt.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s2",
+      "nom": "SoFi Stadium",
+      "ville": "Los Angeles"
+    },
+    "groupe": {
+      "id": "E",
+      "lettre": "E"
+    }
+  },
+  {
+    "id": "m028",
+    "dateHeure": "2026-06-20T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 1,
+    "scoreExterieur": 1,
+    "equipeDomicile": {
+      "id": "19",
+      "nom": "Côte d'Ivoire",
+      "codePays": "ci",
+      "logoUrl": "https://flagcdn.com/ci.svg"
+    },
+    "equipeExterieur": {
+      "id": "20",
+      "nom": "Nigeria",
+      "codePays": "ng",
+      "logoUrl": "https://flagcdn.com/ng.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s3",
+      "nom": "AT&T Stadium",
+      "ville": "Dallas"
+    },
+    "groupe": {
+      "id": "E",
+      "lettre": "E"
+    }
+  },
+  {
+    "id": "m029",
+    "dateHeure": "2026-06-25T18:00:00-05:00",
+    "statut": "a_venir",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "17",
+      "nom": "Espagne",
+      "codePays": "es",
+      "logoUrl": "https://flagcdn.com/es.svg"
+    },
+    "equipeExterieur": {
+      "id": "20",
+      "nom": "Nigeria",
+      "codePays": "ng",
+      "logoUrl": "https://flagcdn.com/ng.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s2",
+      "nom": "SoFi Stadium",
+      "ville": "Los Angeles"
+    },
+    "groupe": {
+      "id": "E",
+      "lettre": "E"
+    }
+  },
+  {
+    "id": "m030",
+    "dateHeure": "2026-06-25T18:00:00-05:00",
+    "statut": "a_venir",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "18",
+      "nom": "Portugal",
+      "codePays": "pt",
+      "logoUrl": "https://flagcdn.com/pt.svg"
+    },
+    "equipeExterieur": {
+      "id": "19",
+      "nom": "Côte d'Ivoire",
+      "codePays": "ci",
+      "logoUrl": "https://flagcdn.com/ci.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s1",
+      "nom": "MetLife Stadium",
+      "ville": "New York / New Jersey"
+    },
+    "groupe": {
+      "id": "E",
+      "lettre": "E"
+    }
+  },
+  {
+    "id": "m031",
+    "dateHeure": "2026-06-16T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 4,
+    "scoreExterieur": 1,
+    "equipeDomicile": {
+      "id": "21",
+      "nom": "Allemagne",
+      "codePays": "de",
+      "logoUrl": "https://flagcdn.com/de.svg"
+    },
+    "equipeExterieur": {
+      "id": "24",
+      "nom": "Cameroun",
+      "codePays": "cm",
+      "logoUrl": "https://flagcdn.com/cm.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s1",
+      "nom": "MetLife Stadium",
+      "ville": "New York / New Jersey"
+    },
+    "groupe": {
+      "id": "F",
+      "lettre": "F"
+    }
+  },
+  {
+    "id": "m032",
+    "dateHeure": "2026-06-16T21:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 1,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "22",
+      "nom": "Angleterre",
+      "codePays": "gb-eng",
+      "logoUrl": "https://flagcdn.com/gb-eng.svg"
+    },
+    "equipeExterieur": {
+      "id": "23",
+      "nom": "Serbie",
+      "codePays": "rs",
+      "logoUrl": "https://flagcdn.com/rs.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s11",
+      "nom": "Lincoln Financial Field",
+      "ville": "Philadelphie"
+    },
+    "groupe": {
+      "id": "F",
+      "lettre": "F"
+    }
+  },
+  {
+    "id": "m033",
+    "dateHeure": "2026-06-21T21:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 1,
+    "scoreExterieur": 2,
+    "equipeDomicile": {
+      "id": "21",
+      "nom": "Allemagne",
+      "codePays": "de",
+      "logoUrl": "https://flagcdn.com/de.svg"
+    },
+    "equipeExterieur": {
+      "id": "22",
+      "nom": "Angleterre",
+      "codePays": "gb-eng",
+      "logoUrl": "https://flagcdn.com/gb-eng.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s2",
+      "nom": "SoFi Stadium",
+      "ville": "Los Angeles"
+    },
+    "groupe": {
+      "id": "F",
+      "lettre": "F"
+    }
+  },
+  {
+    "id": "m034",
+    "dateHeure": "2026-06-21T18:00:00-05:00",
+    "statut": "termine",
+    "scoreDomicile": 2,
+    "scoreExterieur": 1,
+    "equipeDomicile": {
+      "id": "23",
+      "nom": "Serbie",
+      "codePays": "rs",
+      "logoUrl": "https://flagcdn.com/rs.svg"
+    },
+    "equipeExterieur": {
+      "id": "24",
+      "nom": "Cameroun",
+      "codePays": "cm",
+      "logoUrl": "https://flagcdn.com/cm.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s1",
+      "nom": "MetLife Stadium",
+      "ville": "New York / New Jersey"
+    },
+    "groupe": {
+      "id": "F",
+      "lettre": "F"
+    }
+  },
+  {
+    "id": "m035",
+    "dateHeure": "2026-06-26T21:00:00-05:00",
+    "statut": "a_venir",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "21",
+      "nom": "Allemagne",
+      "codePays": "de",
+      "logoUrl": "https://flagcdn.com/de.svg"
+    },
+    "equipeExterieur": {
+      "id": "23",
+      "nom": "Serbie",
+      "codePays": "rs",
+      "logoUrl": "https://flagcdn.com/rs.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s1",
+      "nom": "MetLife Stadium",
+      "ville": "New York / New Jersey"
+    },
+    "groupe": {
+      "id": "F",
+      "lettre": "F"
+    }
+  },
+  {
+    "id": "m036",
+    "dateHeure": "2026-06-26T21:00:00-05:00",
+    "statut": "a_venir",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "22",
+      "nom": "Angleterre",
+      "codePays": "gb-eng",
+      "logoUrl": "https://flagcdn.com/gb-eng.svg"
+    },
+    "equipeExterieur": {
+      "id": "24",
+      "nom": "Cameroun",
+      "codePays": "cm",
+      "logoUrl": "https://flagcdn.com/cm.svg"
+    },
+    "phase": {
+      "id": "1",
+      "nom": "Phase de groupes",
+      "type": "groupes",
+      "ordre": 1
+    },
+    "stade": {
+      "id": "s2",
+      "nom": "SoFi Stadium",
+      "ville": "Los Angeles"
+    },
+    "groupe": {
+      "id": "F",
+      "lettre": "F"
+    }
+  },
+  {
+    "id": "s001",
+    "dateHeure": "2026-07-01T21:00:00-05:00",
+    "statut": "a_venir",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "1",
+      "nom": "Mexique",
+      "codePays": "mx",
+      "logoUrl": "https://flagcdn.com/mx.svg"
+    },
+    "equipeExterieur": {
+      "id": "14",
+      "nom": "Belgique",
+      "codePays": "be",
+      "logoUrl": "https://flagcdn.com/be.svg"
+    },
+    "phase": {
+      "id": "2",
+      "nom": "Seizièmes de finale",
+      "type": "seizieme",
+      "ordre": 2
+    },
+    "stade": {
+      "id": "s15",
+      "nom": "Estadio Azteca",
+      "ville": "Mexico"
+    }
+  },
+  {
+    "id": "s002",
+    "dateHeure": "2026-07-02T21:00:00-05:00",
+    "statut": "a_venir",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "13",
+      "nom": "France",
+      "codePays": "fr",
+      "logoUrl": "https://flagcdn.com/fr.svg"
+    },
+    "equipeExterieur": {
+      "id": "4",
+      "nom": "Maroc",
+      "codePays": "ma",
+      "logoUrl": "https://flagcdn.com/ma.svg"
+    },
+    "phase": {
+      "id": "2",
+      "nom": "Seizièmes de finale",
+      "type": "seizieme",
+      "ordre": 2
+    },
+    "stade": {
+      "id": "s1",
+      "nom": "MetLife Stadium",
+      "ville": "New York / New Jersey"
+    }
+  },
+  {
+    "id": "s003",
+    "dateHeure": "2026-07-03T18:00:00-05:00",
+    "statut": "a_venir",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "5",
+      "nom": "Argentine",
+      "codePays": "ar",
+      "logoUrl": "https://flagcdn.com/ar.svg"
+    },
+    "equipeExterieur": {
+      "id": "11",
+      "nom": "Uruguay",
+      "codePays": "uy",
+      "logoUrl": "https://flagcdn.com/uy.svg"
+    },
+    "phase": {
+      "id": "2",
+      "nom": "Seizièmes de finale",
+      "type": "seizieme",
+      "ordre": 2
+    },
+    "stade": {
+      "id": "s2",
+      "nom": "SoFi Stadium",
+      "ville": "Los Angeles"
+    }
+  },
+  {
+    "id": "s004",
+    "dateHeure": "2026-07-03T21:00:00-05:00",
+    "statut": "a_venir",
+    "scoreDomicile": 0,
+    "scoreExterieur": 0,
+    "equipeDomicile": {
+      "id": "18",
+      "nom": "Portugal",
+      "codePays": "pt",
+      "logoUrl": "https://flagcdn.com/pt.svg"
+    },
+    "equipeExterieur": {
+      "id": "29",
+      "nom": "Pays-Bas",
+      "codePays": "nl",
+      "logoUrl": "https://flagcdn.com/nl.svg"
+    },
+    "phase": {
+      "id": "2",
+      "nom": "Seizièmes de finale",
+      "type": "seizieme",
+      "ordre": 2
+    },
+    "stade": {
+      "id": "s3",
+      "nom": "AT&T Stadium",
+      "ville": "Dallas"
+    }
+  }
+]
